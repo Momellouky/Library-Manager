@@ -1,0 +1,22 @@
+/**
+*
+* SQL SCRIPT
+* DATABASE CREATION
+*
+* @ : PRIMARY KEY
+* # : FOREIGN KEY
+*
+* TABLES : Usager(@CIN, nom, prenom, email, numTel),
+*   Enseignant(@#CIN, grade)
+*   Etudiant(@#CIN, adresse)
+*   Exemplaire(@numInvantaire, #ISBN, etat)
+*   EmprunteExemplaire(@#CIN, @#numInvantaire, @dateEmprunt, dateRelence, dateRetour)
+*   EmpruntThese(@#CIN, @#titre, @#dateEmprunt, dateRelence, dateRetour)
+*   Document(@Titre)
+*   Livre(@ISBN, #Titre, DateEdition, Resume)
+*   These(@Titre, DateSoutenance)
+*   MotsCles(@mot)
+*   MotsClesLivre(@#ISBN, @#mot)
+*   Auteur(@id, nom, prenom)
+*
+*/ 

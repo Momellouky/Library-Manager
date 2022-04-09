@@ -32,55 +32,65 @@ public class HomeAssistantView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-    	  jMenuBar1 = new javax.swing.JMenuBar();
-          menuDocument = new javax.swing.JMenu();
-          menuItemConsulterLivre = new javax.swing.JMenuItem();
-          menuItemConsulterThese = new javax.swing.JMenuItem();
-          menuUsager = new javax.swing.JMenu();
-          menuItemConsulterEns = new javax.swing.JMenuItem();
-          menuItemConsulterEtudiant = new javax.swing.JMenuItem();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuDocument = new javax.swing.JMenu();
+        menuItemConsulterLivre = new javax.swing.JMenuItem();
+        menuItemConsulterThese = new javax.swing.JMenuItem();
+        menuItemUpdateDocs = new javax.swing.JMenuItem();
+        menuUsager = new javax.swing.JMenu();
+        menuItemConsulterEns = new javax.swing.JMenuItem();
+        menuItemConsulterEtudiant = new javax.swing.JMenuItem();
+        menuItemUpdateUsers = new javax.swing.JMenuItem();
 
-          setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-          setPreferredSize(new java.awt.Dimension(1200, 700));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1200, 700));
 
-          menuDocument.setText("Document");
+        menuDocument.setText("Document");
 
-          menuItemConsulterLivre.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-          menuItemConsulterLivre.setText("Consulter Livres");
-          menuDocument.add(menuItemConsulterLivre);
+        menuItemConsulterLivre.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuItemConsulterLivre.setText("Consulter Livres");
+        menuDocument.add(menuItemConsulterLivre);
 
-          menuItemConsulterThese.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-          menuItemConsulterThese.setText("Consulter Thèse");
-          menuDocument.add(menuItemConsulterThese);
+        menuItemConsulterThese.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuItemConsulterThese.setText("Consulter Thèse");
+        menuDocument.add(menuItemConsulterThese);
 
-          jMenuBar1.add(menuDocument);
+        menuItemUpdateDocs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuItemUpdateDocs.setText("Mise à Jour Des Documents");
+        menuDocument.add(menuItemUpdateDocs);
 
-          menuUsager.setText("Usager");
+        jMenuBar1.add(menuDocument);
 
-          menuItemConsulterEns.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-          menuItemConsulterEns.setText("Consulter Enseignant");
-          menuUsager.add(menuItemConsulterEns);
+        menuUsager.setText("Usager");
 
-          menuItemConsulterEtudiant.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-          menuItemConsulterEtudiant.setText("Consulter Etudiant");
-          menuUsager.add(menuItemConsulterEtudiant);
+        menuItemConsulterEns.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuItemConsulterEns.setText("Consulter Enseignant");
+        menuUsager.add(menuItemConsulterEns);
 
-          jMenuBar1.add(menuUsager);
+        menuItemConsulterEtudiant.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuItemConsulterEtudiant.setText("Consulter Etudiant");
+        menuUsager.add(menuItemConsulterEtudiant);
 
-          setJMenuBar(jMenuBar1);
+        menuItemUpdateUsers.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuItemUpdateUsers.setText("Mise à jours des Usages");
+        menuUsager.add(menuItemUpdateUsers);
 
-          javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-          getContentPane().setLayout(layout);
-          layout.setHorizontalGroup(
-              layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGap(0, 400, Short.MAX_VALUE)
-          );
-          layout.setVerticalGroup(
-              layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGap(0, 277, Short.MAX_VALUE)
-          );
+        jMenuBar1.add(menuUsager);
 
-          pack();
+        setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 277, Short.MAX_VALUE)
+        );
+
+        pack();
     }
     
 
@@ -139,6 +149,16 @@ public class HomeAssistantView extends javax.swing.JFrame {
 
 
 
+	public javax.swing.JMenuItem getMenuItemUpdateDocs() {
+		return menuItemUpdateDocs;
+	}
+
+	public javax.swing.JMenuItem getMenuItemUpdateUsers() {
+		return menuItemUpdateUsers;
+	}
+
+
+
 	// Variables declaration - do not modify                     
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menuDocument;
@@ -146,6 +166,8 @@ public class HomeAssistantView extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemConsulterEtudiant;
     private javax.swing.JMenuItem menuItemConsulterLivre;
     private javax.swing.JMenuItem menuItemConsulterThese;
+    private javax.swing.JMenuItem menuItemUpdateDocs;
+    private javax.swing.JMenuItem menuItemUpdateUsers;
     private javax.swing.JMenu menuUsager;
     // End of variables declaration                   
 }

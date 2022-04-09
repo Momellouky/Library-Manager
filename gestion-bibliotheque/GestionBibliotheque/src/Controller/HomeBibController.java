@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import model.Connexion;
 import view.AfficherRetardView;
 import view.HomeBibliothecaireView;
 import view.VerifierExemplaireEnCoursView;
@@ -12,10 +13,12 @@ import view.VerifierExemplaireEnCoursView;
 public class HomeBibController extends Controller{
 	
 	private HomeBibliothecaireView homeView;
+	private Connexion cnxModel; 
 	
-	public HomeBibController(HomeBibliothecaireView homeView) {
+	public HomeBibController(HomeBibliothecaireView homeView, Connexion cnxModel) {
 		
 		this.homeView = homeView; 
+		this.cnxModel = cnxModel;
 	
 	}
 	
