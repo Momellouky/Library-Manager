@@ -195,3 +195,39 @@ CREATE TABLE IF NOT EXISTS Auteur (
         PRIMARY KEY (id) 
             
 )ENGINE = innoDB; 
+
+CREATE TABLE IF NOT EXISTS ecrireLivre (
+
+    idAuteur                                 INT                          , 
+    isbnLivre                               VARCHAR(20)                  , 
+    CONSTRAINT
+        pk__ecrireLivre_Auteur_isbnLivre
+        PRIMARY KEY (idAuteur, isbnLivre),
+    CONSTRAINT
+        fk_ecrireLivre_idAuteur
+        FOREIGN KEY(idAuteur)
+        REFERENCES Auteur(id), 
+    CONSTRAINT
+        fk_ecrireLivre_isbnLivre
+        FOREIGN KEY (isbnLivre)
+        REFERENCES livre(isbn)
+            
+)ENGINE = innoDB; 
+
+CREATE TABLE IF NOT EXISTS ecrireThese (
+
+    idAuteur                                 INT                          , 
+    titreThese                               VARCHAR(500)                  , 
+    CONSTRAINT
+        pk__ecrireThese_idAuteur_titre
+        PRIMARY KEY (idAuteur, titreThese),
+    CONSTRAINT
+        fk_ecrireLivre_idAuteur
+        FOREIGN KEY(idAuteur)
+        REFERENCES Auteur(id), 
+    CONSTRAINT
+        fk_ecrireThese_titreThese
+        FOREIGN KEY (titreThese)
+        REFERENCES these(titre)
+            
+)ENGINE = innoDB; 

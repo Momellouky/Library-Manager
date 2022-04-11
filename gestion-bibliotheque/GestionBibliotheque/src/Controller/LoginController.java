@@ -23,11 +23,11 @@ public class LoginController extends Controller{
 		this.lv = lv; 
 		
 //		assMail = new String("assistant.fatma.hachimi@usmba.ac.ma"); 
-		assMail = new String("mail"); 
-		bibMail = new String("bibliothecaire.fatma.hachimi@usmba.ac.ma"); 
+		assMail = new String(""); 
+		bibMail = new String("mail"); 
 //		assMdp = new String("1234abcd"); 
-		assMdp = new String("pass"); 
-		bibMdp = new String("4321cda"); 
+		assMdp = new String(""); 
+		bibMdp = new String("mail"); 
 		
 		cnxModel = new Connexion(); 
 		
@@ -42,8 +42,13 @@ public class LoginController extends Controller{
 				
 				int rep = JOptionPane.showConfirmDialog(lv, "Vous êtes entrain de vous déconnecter de l'application. Continuer ?", "Deconnexion de l'application", JOptionPane.OK_CANCEL_OPTION); 
 				
-				if(rep == JOptionPane.OK_OPTION)
+				if(rep == JOptionPane.OK_OPTION) {
+					
 					System.exit(0);
+					
+					
+				}
+					
 				
 				
 			}
@@ -75,6 +80,8 @@ public class LoginController extends Controller{
 						HomeAssistantController assController = new HomeAssistantController(assView, cnxModel); 
 						assController.initController(); 
 						
+						connectToDB();
+						
 						lv.dispose(); 
 						
 					}
@@ -85,7 +92,7 @@ public class LoginController extends Controller{
 						HomeBibController bibController = new HomeBibController(bibView, cnxModel); 
 						bibController.initController(); 
 						
-
+						connectToDB();
 						
 						lv.dispose(); 
 												
@@ -95,27 +102,34 @@ public class LoginController extends Controller{
 						JOptionPane.showMessageDialog(lv,"E-mail ou mot de passe incorrecte.", "Erreur d'authentification", JOptionPane.ERROR_MESSAGE); 
 						
 					}
-					
-					try {
-						
-						cnxModel.connect(); 
-						JOptionPane.showMessageDialog(lv, "Vous êtes connecté", "Connexion", JOptionPane.INFORMATION_MESSAGE); 
-						
-					}catch(ClassNotFoundException exc) { 
-						
-						JOptionPane.showMessageDialog(lv, "Un erreur de connexion est surevenu. ", "Connexion", JOptionPane.ERROR_MESSAGE); 
-						
-						
-					}catch(Exception exc) {
-						
-						JOptionPane.showMessageDialog(lv, "Un erreur de connexion est surevenu. ", "Connexion", JOptionPane.ERROR_MESSAGE); 
-						
-					}
+
 					
 				}
 				
 			}
 		});
+		
+	}
+	
+	
+	private void connectToDB() {
+		
+		
+		try {
+			
+			cnxModel.connect(); 
+			JOptionPane.showMessageDialog(lv, "Vous êtes connecté", "Connexion", JOptionPane.INFORMATION_MESSAGE); 
+			
+		}catch(ClassNotFoundException exc) { 
+			
+			JOptionPane.showMessageDialog(lv, "Un erreur de connexion est surevenu. ", "Connexion", JOptionPane.ERROR_MESSAGE); 
+			
+			
+		}catch(Exception exc) {
+			
+			JOptionPane.showMessageDialog(lv, "Un erreur de connexion est surevenu. ", "Connexion", JOptionPane.ERROR_MESSAGE); 
+			
+		}
 		
 	}
 	

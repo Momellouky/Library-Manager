@@ -5,6 +5,8 @@
 package view;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.*; 
 
 public class VerifierExemplaireEnCoursView extends javax.swing.JFrame {
@@ -35,7 +37,7 @@ public class VerifierExemplaireEnCoursView extends javax.swing.JFrame {
     	  pnlEnrEmprunt = new javax.swing.JPanel();
           lblCin = new javax.swing.JLabel();
           txtCin = new javax.swing.JTextField();
-          tbnSearch = new javax.swing.JButton();
+          btnSearch = new javax.swing.JButton();
           tblScrollPane = new javax.swing.JScrollPane();
           tblEmprunt = new javax.swing.JTable();
           lblNbrEmpruntEnCours = new javax.swing.JLabel();
@@ -51,25 +53,35 @@ public class VerifierExemplaireEnCoursView extends javax.swing.JFrame {
           txtCin.setMaximumSize(new java.awt.Dimension(88, 22));
           txtCin.setMinimumSize(new java.awt.Dimension(88, 22));
 
-          tbnSearch.setText("Rechercher");
-
-          tblEmprunt.setModel(new javax.swing.table.DefaultTableModel(
-              new Object [][] {
-                  {null, null, null},
-                  {null, null, null},
-              },
-              new String [] {
-                  "Nom", "Prenom", "Emprunt"
-              }
-          ) {
-              boolean[] canEdit = new boolean [] {
-                  false, false, false
-              };
-
-              public boolean isCellEditable(int rowIndex, int columnIndex) {
-                  return canEdit [columnIndex];
-              }
-          });
+          btnSearch.setText("Rechercher");
+          
+          empruntDefaultModel = new DefaultTableModel(
+        new Object [][] {
+        	  
+          },
+          new String [] {
+              "Nom", "Prenom", "Emprunt"
+          }); 
+                  
+//          tblEmprunt.setModel(new javax.swing.table.DefaultTableModel(
+//              new Object [][] {
+//            	  
+//              },
+//              new String [] {
+//                  "Nom", "Prenom", "Emprunt"
+//              }
+//          ) {
+//              boolean[] canEdit = new boolean [] {
+//                  false, false, false
+//              };
+//
+//              public boolean isCellEditable(int rowIndex, int columnIndex) {
+//                  return canEdit [columnIndex];
+//              }
+//          });
+          
+          tblEmprunt.setModel(empruntDefaultModel); 
+          
           tblScrollPane.setViewportView(tblEmprunt);
 
           lblNbrEmpruntEnCours.setText("Nombre D'emprunt en cours :");
@@ -80,7 +92,7 @@ public class VerifierExemplaireEnCoursView extends javax.swing.JFrame {
 
           btnContinuer.setMnemonic('C');
           btnContinuer.setText("Continuer");
-//          btnContinuer.setEnabled(false);
+          btnContinuer.setEnabled(false);
 
           javax.swing.GroupLayout pnlEnrEmpruntLayout = new javax.swing.GroupLayout(pnlEnrEmprunt);
           pnlEnrEmprunt.setLayout(pnlEnrEmpruntLayout);
@@ -95,7 +107,7 @@ public class VerifierExemplaireEnCoursView extends javax.swing.JFrame {
                           .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                           .addComponent(txtCin, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                           .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                          .addComponent(tbnSearch)))
+                          .addComponent(btnSearch)))
                   .addContainerGap(72, Short.MAX_VALUE))
               .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEnrEmpruntLayout.createSequentialGroup()
                   .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -118,7 +130,7 @@ public class VerifierExemplaireEnCoursView extends javax.swing.JFrame {
                   .addGroup(pnlEnrEmpruntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                       .addComponent(lblCin)
                       .addComponent(txtCin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                      .addComponent(tbnSearch))
+                      .addComponent(btnSearch))
                   .addGap(33, 33, 33)
                   .addComponent(tblScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                   .addGap(33, 33, 33)
@@ -182,6 +194,28 @@ public class VerifierExemplaireEnCoursView extends javax.swing.JFrame {
     	
     }
     
+    public JButton getBtnAnnuler() {
+    	return btnAnnuler; 
+    }
+    
+    public JButton getBtnSearch() {
+    	
+    	return btnSearch; 
+    	
+    }
+    
+    public JTextField getTxtCin() {
+    	return txtCin; 
+    }
+    
+    public DefaultTableModel getEmpruntDefaultModel() { 
+    	return empruntDefaultModel; 
+    }
+    
+    public JLabel getLblNbrEmprunt() {
+    	return lblNbrEmprunt; 
+    }
+    
     // Variable Declaration start
     private javax.swing.JButton btnAnnuler;
     private javax.swing.JButton btnContinuer;
@@ -190,8 +224,9 @@ public class VerifierExemplaireEnCoursView extends javax.swing.JFrame {
     private javax.swing.JLabel lblNbrEmpruntEnCours;
     private javax.swing.JPanel pnlEnrEmprunt;
     private javax.swing.JTable tblEmprunt;
+    private DefaultTableModel empruntDefaultModel; 
     private javax.swing.JScrollPane tblScrollPane;
-    private javax.swing.JButton tbnSearch;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JTextField txtCin;
     // End of variables declaration                   
 }

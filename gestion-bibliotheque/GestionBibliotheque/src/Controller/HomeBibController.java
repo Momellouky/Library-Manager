@@ -31,7 +31,7 @@ public class HomeBibController extends Controller{
 			public void actionPerformed(ActionEvent e) {
 				
 				VerifierExemplaireEnCoursView verExView = new VerifierExemplaireEnCoursView(); 
-				VerifierExemplaireEnCoursController verExC = new VerifierExemplaireEnCoursController(verExView); 
+				VerifierExemplaireEnCoursController verExC = new VerifierExemplaireEnCoursController(verExView, cnxModel); 
 				verExC.initController();
 				
 			}

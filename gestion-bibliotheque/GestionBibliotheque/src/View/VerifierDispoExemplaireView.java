@@ -30,98 +30,160 @@ public class VerifierDispoExemplaireView extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-
+    	
+        btnGrpTypeSearch = new javax.swing.ButtonGroup();
+        pnlTypeDeRecherche = new javax.swing.JPanel();
+        radioExemplaire = new javax.swing.JRadioButton();
+        radioThese = new javax.swing.JRadioButton();
+        pnlSearch = new javax.swing.JPanel();
         lblNbrExemplaireDispo = new javax.swing.JLabel();
         lblNbrExemplaire = new javax.swing.JLabel();
         btnAnnuler = new javax.swing.JButton();
         btnEmprunter = new javax.swing.JButton();
-        lblSearchTitre = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
         txtTitre = new javax.swing.JTextField();
-        tbnSearch = new javax.swing.JButton();
-        lblISBN = new javax.swing.JLabel();
-        lblISBNExemplaire = new javax.swing.JLabel();
-        lblTitre = new javax.swing.JLabel();
-        lblTitreExemplaire = new javax.swing.JLabel();
+        btnSearch = new javax.swing.JButton();
+        lblSecond = new javax.swing.JLabel();
+        lblSecondText = new javax.swing.JLabel();
+        lblThird = new javax.swing.JLabel();
+        lblThirdText = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Verifier nombre exemplaires disponible");
+
+        pnlTypeDeRecherche.setBorder(javax.swing.BorderFactory.createTitledBorder("Type de recherche"));
+
+        btnGrpTypeSearch.add(radioExemplaire);
+        radioExemplaire.setSelected(true);
+        radioExemplaire.setText("Exemplaire");
+
+        btnGrpTypeSearch.add(radioThese);
+        radioThese.setText("These");
+
+        javax.swing.GroupLayout pnlTypeDeRechercheLayout = new javax.swing.GroupLayout(pnlTypeDeRecherche);
+        pnlTypeDeRecherche.setLayout(pnlTypeDeRechercheLayout);
+        pnlTypeDeRechercheLayout.setHorizontalGroup(
+            pnlTypeDeRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTypeDeRechercheLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(radioExemplaire, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(radioThese, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88))
+        );
+        pnlTypeDeRechercheLayout.setVerticalGroup(
+            pnlTypeDeRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTypeDeRechercheLayout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(pnlTypeDeRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radioExemplaire)
+                    .addComponent(radioThese))
+                .addGap(24, 24, 24))
+        );
+
+        pnlSearch.setBorder(javax.swing.BorderFactory.createTitledBorder("Recherche"));
 
         lblNbrExemplaireDispo.setText("Nombre d'exemplaires diponible : ");
 
         btnAnnuler.setText("Annuler");
 
-        btnEmprunter.setMnemonic('E');
         btnEmprunter.setText("Emprunter");
+        btnEmprunter.setMnemonic('E');
+        btnEmprunter.setEnabled(false);
 
-        lblSearchTitre.setText("Titre:");
+        lblId.setText("ISBN : ");
 
         txtTitre.setMaximumSize(new java.awt.Dimension(88, 22));
         txtTitre.setMinimumSize(new java.awt.Dimension(88, 22));
 
-        tbnSearch.setText("Rechercher");
+        btnSearch.setText("Rechercher");
 
-        lblISBN.setText("ISBN :");
+        lblSecond.setText("Titre : ");
 
-        lblTitre.setText("Titre : ");
+        lblThird.setText("Auteur : ");
+
+        javax.swing.GroupLayout pnlSearchLayout = new javax.swing.GroupLayout(pnlSearch);
+        pnlSearch.setLayout(pnlSearchLayout);
+        pnlSearchLayout.setHorizontalGroup(
+            pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearchLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSearchLayout.createSequentialGroup()
+                        .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblId, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                            .addComponent(lblSecond, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlSearchLayout.createSequentialGroup()
+                                .addComponent(txtTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSearch))
+                            .addComponent(lblSecondText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlSearchLayout.createSequentialGroup()
+                            .addComponent(lblThird, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblThirdText, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlSearchLayout.createSequentialGroup()
+                            .addGap(81, 81, 81)
+                            .addComponent(lblNbrExemplaireDispo)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblNbrExemplaire, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlSearchLayout.createSequentialGroup()
+                            .addGap(211, 211, 211)
+                            .addComponent(btnEmprunter)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnAnnuler)
+                            .addGap(0, 12, Short.MAX_VALUE))))
+                .addGap(18, 18, 18))
+        );
+        pnlSearchLayout.setVerticalGroup(
+            pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearchLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblId)
+                    .addComponent(txtTitre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch))
+                .addGap(32, 32, 32)
+                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSecond)
+                    .addComponent(lblSecondText, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblThird)
+                    .addComponent(lblThirdText, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblNbrExemplaireDispo)
+                    .addComponent(lblNbrExemplaire, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEmprunter)
+                    .addComponent(btnAnnuler))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSearchTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tbnSearch))
-                            .addComponent(lblISBNExemplaire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblTitreExemplaire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnEmprunter)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAnnuler))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNbrExemplaireDispo)
-                                .addGap(48, 48, 48)
-                                .addComponent(lblNbrExemplaire, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlTypeDeRecherche, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSearchTitre)
-                    .addComponent(txtTitre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tbnSearch))
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblISBN)
-                    .addComponent(lblISBNExemplaire))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTitre)
-                    .addComponent(lblTitreExemplaire))
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNbrExemplaire)
-                    .addComponent(lblNbrExemplaireDispo))
+                .addGap(30, 30, 30)
+                .addComponent(pnlTypeDeRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEmprunter)
-                    .addComponent(btnAnnuler))
-                .addGap(52, 52, 52))
+                .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,17 +215,86 @@ public class VerifierDispoExemplaireView extends javax.swing.JFrame {
     	return btnEmprunter; 
     }
     
-    // Variables declaration                     
+    public JButton getBtnSearch() {
+    	return btnSearch; 
+    }
+    
+    public JButton getBtnAnnuler() {
+    	return btnAnnuler; 
+    }
+    
+    public javax.swing.JRadioButton getRadioExemplaire() {
+		return radioExemplaire;
+	}
+
+	public javax.swing.JRadioButton getRadioThese() {
+		return radioThese;
+	}
+
+	public javax.swing.JTextField getTxtTitre() {
+		return txtTitre;
+	}
+
+	public JLabel getLblId() {
+		return lblId; 
+	}
+	
+	public JLabel getLblSecond() {
+		return lblSecond; 
+	}
+	
+	public JLabel getLblSecondText() {
+		return lblSecondText; 
+	}
+	
+	public JLabel getLblThirdText() {
+		return lblThirdText; 
+	}
+	
+	public JLabel getLblThird() {
+		return lblThird; 
+	}
+	
+	public JLabel getLblNombreExemplaireDisponible() {
+		return lblNbrExemplaire; 
+	}
+
+
+	// Variables declaration                     
     private javax.swing.JButton btnAnnuler;
     private javax.swing.JButton btnEmprunter;
-    private javax.swing.JLabel lblISBN;
-    private javax.swing.JLabel lblISBNExemplaire;
+    private javax.swing.ButtonGroup btnGrpTypeSearch;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblNbrExemplaire;
     private javax.swing.JLabel lblNbrExemplaireDispo;
-    private javax.swing.JLabel lblSearchTitre;
-    private javax.swing.JLabel lblTitre;
-    private javax.swing.JLabel lblTitreExemplaire;
-    private javax.swing.JButton tbnSearch;
+    private javax.swing.JLabel lblSecond;
+    private javax.swing.JLabel lblSecondText;
+    private javax.swing.JLabel lblThird;
+    private javax.swing.JLabel lblThirdText;
+    private javax.swing.JPanel pnlSearch;
+    private javax.swing.JPanel pnlTypeDeRecherche;
+    private javax.swing.JRadioButton radioExemplaire;
+    private javax.swing.JRadioButton radioThese;
     private javax.swing.JTextField txtTitre;
-    // End of variables declaration                   
+    // End of variables declaration   
+    
+    
+	public void triggerErrorMessage(String msj, String title) {
+		
+		JOptionPane.showMessageDialog(this, msj, title, JOptionPane.ERROR_MESSAGE);
+		
+	}
+
+	public void triggerSQLError(String msj, String title) {
+		
+		JOptionPane.showMessageDialog(this, msj, title, JOptionPane.ERROR_MESSAGE);
+		
+	}
+
+	public void triggerWarningMessage(String msj, String title) {
+
+		JOptionPane.showMessageDialog(this, msj, title, JOptionPane.WARNING_MESSAGE);
+		
+	}
 }

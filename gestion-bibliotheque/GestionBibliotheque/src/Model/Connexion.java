@@ -48,6 +48,26 @@ public class Connexion {
 		
 	}
 	
+	public ResultSet requete(String table, String condition) {
+		
+		ResultSet rs = null; 
+		String query = "SELECT * FROM " + table ; 
+		
+		try {
+			
+			Statement st = myCnx.createStatement(); 
+			rs = st.executeQuery(query); 
+			
+		}catch(Exception e) {
+			
+		}
+			
+			
+		
+		return rs; 
+		
+	}
+	
 	public Connection getMyCnx() {
 		return myCnx;
 	}

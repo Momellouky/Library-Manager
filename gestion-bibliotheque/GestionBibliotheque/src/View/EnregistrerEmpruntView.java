@@ -4,6 +4,8 @@
  */
 package view;
 
+import java.awt.Dimension;
+
 import com.toedter.calendar.JDateChooser;
 
 /**
@@ -34,202 +36,223 @@ public class EnregistrerEmpruntView extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-    	  pnlInfoEtudiant = new javax.swing.JPanel();
-          lblCin = new javax.swing.JLabel();
-          txtCin = new javax.swing.JTextField();
-          txtNom = new javax.swing.JTextField();
-          lblNom = new javax.swing.JLabel();
-          lblPrenom = new javax.swing.JLabel();
-          txtPrenom = new javax.swing.JTextField();
-          pnlEmprunte = new javax.swing.JPanel();
-          lblDateEmprunt = new javax.swing.JLabel();
-          lblDatePrevueRetour = new javax.swing.JLabel();
-          txtDatePrevueRetour = new javax.swing.JTextField();
-          txtDateEmprunt = new com.toedter.calendar.JDateChooser();
-          btnAnnuler = new javax.swing.JButton();
-          btnEnregister = new javax.swing.JButton();
-          pnlInfoExemplaire = new javax.swing.JPanel();
-          lblISBN = new javax.swing.JLabel();
-          txtISBN = new javax.swing.JTextField();
-          txtTitre = new javax.swing.JTextField();
-          lblTitre = new javax.swing.JLabel();
 
-          setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-          setTitle("Enregistrer Emprunt");
+        pnlInfoEtudiant = new javax.swing.JPanel();
+        lblCin = new javax.swing.JLabel();
+        txtCin = new javax.swing.JTextField();
+        txtNom = new javax.swing.JTextField();
+        lblNom = new javax.swing.JLabel();
+        lblPrenom = new javax.swing.JLabel();
+        txtPrenom = new javax.swing.JTextField();
+        pnlEmprunte = new javax.swing.JPanel();
+        lblDateEmprunt = new javax.swing.JLabel();
+        lblDatePrevueRetour = new javax.swing.JLabel();
+        txtDatePrevueRetour = new javax.swing.JTextField();
+        dtDateEmprunt = new com.toedter.calendar.JDateChooser();
+        btnAnnuler = new javax.swing.JButton();
+        btnEnregister = new javax.swing.JButton();
+        pnlInfoExemplaire = new javax.swing.JPanel();
+        lblFirst = new javax.swing.JLabel();
+        txtFirst = new javax.swing.JTextField();
+        txtSecond = new javax.swing.JTextField();
+        lblSecond = new javax.swing.JLabel();
+        lblThird = new javax.swing.JLabel();
+        txtThird = new javax.swing.JTextField();
 
-          pnlInfoEtudiant.setBorder(javax.swing.BorderFactory.createTitledBorder("Information de l'usager"));
-          pnlInfoEtudiant.setName(""); // NOI18N
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Enregistrer Emprunt");
 
-          lblCin.setText("CIN :");
+        pnlInfoEtudiant.setBorder(javax.swing.BorderFactory.createTitledBorder("Information de l'usager"));
+        pnlInfoEtudiant.setName(""); // NOI18N
 
-          txtCin.setEditable(false);
+        lblCin.setText("CIN :");
 
-          txtNom.setEditable(false);
+        txtCin.setEditable(false);
 
-          lblNom.setText("Nom :");
+        txtNom.setEditable(false);
 
-          lblPrenom.setText("Prenom :");
+        lblNom.setText("Nom :");
 
-          txtPrenom.setEditable(false);
+        lblPrenom.setText("Prenom :");
 
-          javax.swing.GroupLayout pnlInfoEtudiantLayout = new javax.swing.GroupLayout(pnlInfoEtudiant);
-          pnlInfoEtudiant.setLayout(pnlInfoEtudiantLayout);
-          pnlInfoEtudiantLayout.setHorizontalGroup(
-              pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(pnlInfoEtudiantLayout.createSequentialGroup()
-                  .addGap(15, 15, 15)
-                  .addGroup(pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                      .addComponent(lblCin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                      .addComponent(lblPrenom, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                      .addComponent(lblNom, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGap(18, 18, 18)
-                  .addGroup(pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                      .addComponent(txtCin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                      .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                          .addComponent(txtNom)
-                          .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                  .addContainerGap(17, Short.MAX_VALUE))
-          );
-          pnlInfoEtudiantLayout.setVerticalGroup(
-              pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(pnlInfoEtudiantLayout.createSequentialGroup()
-                  .addGap(20, 20, 20)
-                  .addGroup(pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                      .addComponent(lblCin)
-                      .addComponent(txtCin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGap(18, 18, 18)
-                  .addGroup(pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                      .addComponent(lblNom)
-                      .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                  .addGroup(pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                      .addComponent(lblPrenom)
-                      .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addContainerGap(19, Short.MAX_VALUE))
-          );
+        txtPrenom.setEditable(false);
 
-          pnlEmprunte.setBorder(javax.swing.BorderFactory.createTitledBorder("Information de l'emprunt"));
+        javax.swing.GroupLayout pnlInfoEtudiantLayout = new javax.swing.GroupLayout(pnlInfoEtudiant);
+        pnlInfoEtudiant.setLayout(pnlInfoEtudiantLayout);
+        pnlInfoEtudiantLayout.setHorizontalGroup(
+            pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInfoEtudiantLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblCin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPrenom, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNom, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtCin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtNom)
+                        .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        pnlInfoEtudiantLayout.setVerticalGroup(
+            pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInfoEtudiantLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCin)
+                    .addComponent(txtCin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNom)
+                    .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlInfoEtudiantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPrenom)
+                    .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
 
-          lblDateEmprunt.setText("Date Emprunt : ");
+        pnlEmprunte.setBorder(javax.swing.BorderFactory.createTitledBorder("Information de l'emprunt"));
 
-          lblDatePrevueRetour.setText("Date prevue de retour :");
+        lblDateEmprunt.setText("Date Emprunt : ");
 
-          txtDatePrevueRetour.setEditable(false);
+        lblDatePrevueRetour.setText("Date prevue de retour :");
 
-          javax.swing.GroupLayout pnlEmprunteLayout = new javax.swing.GroupLayout(pnlEmprunte);
-          pnlEmprunte.setLayout(pnlEmprunteLayout);
-          pnlEmprunteLayout.setHorizontalGroup(
-              pnlEmprunteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(pnlEmprunteLayout.createSequentialGroup()
-                  .addContainerGap()
-                  .addGroup(pnlEmprunteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                      .addComponent(lblDatePrevueRetour)
-                      .addComponent(lblDateEmprunt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                  .addGroup(pnlEmprunteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                      .addComponent(txtDatePrevueRetour)
-                      .addComponent(txtDateEmprunt, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))
-                  .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-          );
-          pnlEmprunteLayout.setVerticalGroup(
-              pnlEmprunteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(pnlEmprunteLayout.createSequentialGroup()
-                  .addGap(21, 21, 21)
-                  .addGroup(pnlEmprunteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                      .addComponent(lblDateEmprunt)
-                      .addComponent(txtDateEmprunt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                  .addGroup(pnlEmprunteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                      .addComponent(lblDatePrevueRetour)
-                      .addComponent(txtDatePrevueRetour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGap(16, 16, 16))
-          );
+        txtDatePrevueRetour.setEditable(false);
 
-          btnAnnuler.setText("Annuler");
+        javax.swing.GroupLayout pnlEmprunteLayout = new javax.swing.GroupLayout(pnlEmprunte);
+        pnlEmprunte.setLayout(pnlEmprunteLayout);
+        pnlEmprunteLayout.setHorizontalGroup(
+            pnlEmprunteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEmprunteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlEmprunteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDatePrevueRetour)
+                    .addComponent(lblDateEmprunt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlEmprunteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtDatePrevueRetour)
+                    .addComponent(dtDateEmprunt, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlEmprunteLayout.setVerticalGroup(
+            pnlEmprunteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEmprunteLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(pnlEmprunteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDateEmprunt)
+                    .addComponent(dtDateEmprunt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(pnlEmprunteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDatePrevueRetour)
+                    .addComponent(txtDatePrevueRetour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16))
+        );
 
-          btnEnregister.setText("Enregistrer ");
-          btnEnregister.setMnemonic('E');
+        btnAnnuler.setText("Annuler");
 
-          pnlInfoExemplaire.setBorder(javax.swing.BorderFactory.createTitledBorder("Information de l'exemplaire"));
-          pnlInfoExemplaire.setName(""); // NOI18N
+        btnEnregister.setMnemonic('E');
+        btnEnregister.setText("Enregistrer ");
 
-          lblISBN.setText("ISBN :");
+        pnlInfoExemplaire.setBorder(javax.swing.BorderFactory.createTitledBorder("Information de l'exemplaire"));
+        pnlInfoExemplaire.setName(""); // NOI18N
 
-          txtISBN.setEditable(false);
+        lblFirst.setText("ISBN :");
+        
+        txtFirst.setEditable(false);
+        txtFirst.setMaximumSize(new Dimension(251, 21));
+        txtSecond.setEditable(false);
 
-          txtTitre.setEditable(false);
+        lblSecond.setText("TItre");
 
-          lblTitre.setText("TItre");
+        lblThird.setText("Auteur:");
 
-          javax.swing.GroupLayout pnlInfoExemplaireLayout = new javax.swing.GroupLayout(pnlInfoExemplaire);
-          pnlInfoExemplaire.setLayout(pnlInfoExemplaireLayout);
-          pnlInfoExemplaireLayout.setHorizontalGroup(
-              pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(pnlInfoExemplaireLayout.createSequentialGroup()
-                  .addGap(15, 15, 15)
-                  .addGroup(pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                      .addComponent(lblISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                      .addComponent(lblTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                  .addGroup(pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                      .addComponent(txtISBN)
-                      .addComponent(txtTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGap(17, 17, 17))
-          );
-          pnlInfoExemplaireLayout.setVerticalGroup(
-              pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(pnlInfoExemplaireLayout.createSequentialGroup()
-                  .addGap(20, 20, 20)
-                  .addGroup(pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                      .addComponent(lblISBN)
-                      .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGap(18, 18, 18)
-                  .addGroup(pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                      .addComponent(lblTitre)
-                      .addComponent(txtTitre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addContainerGap(46, Short.MAX_VALUE))
-          );
+        txtThird.setEditable(false);
+        txtThird.setPreferredSize(new java.awt.Dimension(252, 22));
+        txtThird.setRequestFocusEnabled(false);
 
-          javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-          getContentPane().setLayout(layout);
-          layout.setHorizontalGroup(
-              layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(layout.createSequentialGroup()
-                  .addGap(64, 64, 64)
-                  .addComponent(pnlInfoExemplaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addContainerGap(71, Short.MAX_VALUE))
-              .addGroup(layout.createSequentialGroup()
-                  .addGap(323, 323, 323)
-                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                      .addComponent(btnEnregister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                      .addComponent(btnAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGap(0, 0, Short.MAX_VALUE))
-              .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                  .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                  .addComponent(pnlEmprunte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addGap(73, 73, 73))
-              .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                  .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                  .addComponent(pnlInfoEtudiant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-          );
-          layout.setVerticalGroup(
-              layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(layout.createSequentialGroup()
-                  .addGap(17, 17, 17)
-                  .addComponent(pnlInfoEtudiant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                  .addComponent(pnlInfoExemplaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                  .addComponent(pnlEmprunte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                  .addComponent(btnAnnuler)
-                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                  .addComponent(btnEnregister)
-                  .addContainerGap(18, Short.MAX_VALUE))
-          );
+        javax.swing.GroupLayout pnlInfoExemplaireLayout = new javax.swing.GroupLayout(pnlInfoExemplaire);
+        pnlInfoExemplaire.setLayout(pnlInfoExemplaireLayout);
+        pnlInfoExemplaireLayout.setHorizontalGroup(
+            pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInfoExemplaireLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlInfoExemplaireLayout.createSequentialGroup()
+                        .addComponent(lblThird, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(txtThird, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlInfoExemplaireLayout.createSequentialGroup()
+                        .addGroup(pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlInfoExemplaireLayout.createSequentialGroup()
+                                .addComponent(lblFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(lblSecond, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtSecond, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                            .addComponent(txtFirst))))
+                .addGap(17, 17, 17))
+        );
+        pnlInfoExemplaireLayout.setVerticalGroup(
+            pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInfoExemplaireLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFirst)
+                    .addComponent(txtFirst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSecond)
+                    .addComponent(txtSecond, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlInfoExemplaireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblThird)
+                    .addComponent(txtThird, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
 
-          pack();
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(pnlInfoExemplaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlInfoEtudiant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlEmprunte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEnregister)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(pnlInfoEtudiant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlInfoExemplaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlEmprunte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAnnuler)
+                    .addComponent(btnEnregister))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        pack();
     }// </editor-fold>                        
 
     /**
@@ -263,26 +286,118 @@ public class EnregistrerEmpruntView extends javax.swing.JFrame {
 
     	
     }
+    
+    
 
-    // Variables declaration - do not modify                     
+
+	public javax.swing.JButton getBtnAnnuler() {
+		return btnAnnuler;
+	}
+
+	public javax.swing.JButton getBtnEnregister() {
+		return btnEnregister;
+	}
+
+	public com.toedter.calendar.JDateChooser getDtDateEmprunt() {
+		return dtDateEmprunt;
+	}
+
+	public javax.swing.JLabel getLblCin() {
+		return lblCin;
+	}
+
+	public javax.swing.JLabel getLblDateEmprunt() {
+		return lblDateEmprunt;
+	}
+
+	public javax.swing.JLabel getLblDatePrevueRetour() {
+		return lblDatePrevueRetour;
+	}
+
+	public javax.swing.JLabel getLblFirst() {
+		return lblFirst;
+	}
+
+	public javax.swing.JLabel getLblNom() {
+		return lblNom;
+	}
+
+	public javax.swing.JLabel getLblPrenom() {
+		return lblPrenom;
+	}
+
+	public javax.swing.JLabel getLblSecond() {
+		return lblSecond;
+	}
+
+	public javax.swing.JLabel getLblThird() {
+		return lblThird;
+	}
+
+	public javax.swing.JPanel getPnlEmprunte() {
+		return pnlEmprunte;
+	}
+
+	public javax.swing.JPanel getPnlInfoEtudiant() {
+		return pnlInfoEtudiant;
+	}
+
+	public javax.swing.JPanel getPnlInfoExemplaire() {
+		return pnlInfoExemplaire;
+	}
+
+	public javax.swing.JTextField getTxtCin() {
+		return txtCin;
+	}
+
+	public javax.swing.JTextField getTxtDatePrevueRetour() {
+		return txtDatePrevueRetour;
+	}
+
+	public javax.swing.JTextField getTxtFirst() {
+		return txtFirst;
+	}
+
+	public javax.swing.JTextField getTxtNom() {
+		return txtNom;
+	}
+
+	public javax.swing.JTextField getTxtPrenom() {
+		return txtPrenom;
+	}
+
+	public javax.swing.JTextField getTxtSecond() {
+		return txtSecond;
+	}
+
+	public javax.swing.JTextField getTxtThird() {
+		return txtThird;
+	}
+
+
+
+
+	// Variables declaration - do not modify                     
     private javax.swing.JButton btnAnnuler;
     private javax.swing.JButton btnEnregister;
+    private com.toedter.calendar.JDateChooser dtDateEmprunt;
     private javax.swing.JLabel lblCin;
     private javax.swing.JLabel lblDateEmprunt;
     private javax.swing.JLabel lblDatePrevueRetour;
-    private javax.swing.JLabel lblISBN;
+    private javax.swing.JLabel lblFirst;
     private javax.swing.JLabel lblNom;
     private javax.swing.JLabel lblPrenom;
-    private javax.swing.JLabel lblTitre;
+    private javax.swing.JLabel lblSecond;
+    private javax.swing.JLabel lblThird;
     private javax.swing.JPanel pnlEmprunte;
     private javax.swing.JPanel pnlInfoEtudiant;
     private javax.swing.JPanel pnlInfoExemplaire;
     private javax.swing.JTextField txtCin;
-    private JDateChooser txtDateEmprunt;
     private javax.swing.JTextField txtDatePrevueRetour;
-    private javax.swing.JTextField txtISBN;
+    private javax.swing.JTextField txtFirst;
     private javax.swing.JTextField txtNom;
     private javax.swing.JTextField txtPrenom;
-    private javax.swing.JTextField txtTitre;
+    private javax.swing.JTextField txtSecond;
+    private javax.swing.JTextField txtThird;
     // End of variables declaration                   
 }
