@@ -7,6 +7,10 @@ import java.text.SimpleDateFormat;
 
 public class EmpruntModel {
 	
+	private String cin; 
+	private String exemplaireId; 
+	private Date dtEmprunt; 
+	private Date dtRetour; 
 	private Connexion currentCnx; 
 	
 	public EmpruntModel(Connexion currentCnx) {
@@ -14,6 +18,18 @@ public class EmpruntModel {
 		this.currentCnx = currentCnx; 
 		
 	}
+	
+	
+	public EmpruntModel(Connexion currentCnx, String cin, String exemplaireId, Date dtEmprunt, Date dtRetour) {
+		
+		this.currentCnx = currentCnx;
+		this.cin = cin; 
+		this.exemplaireId = exemplaireId; 
+		this.dtEmprunt = dtEmprunt; 
+		this.dtRetour = dtRetour; 
+		
+	}
+	
 	
 	public ResultSet getCurrentEmprunt(String cin) {
 		
@@ -93,11 +109,11 @@ public class EmpruntModel {
 		
 	}
 	
-	public void insertEmpruntExemplaire(String cin, String numInv, Date dtEmprunt) {
+	public void insertEmpruntExemplaire(String cin, String exemplaireId, Date dtEmprunt) {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
 		System.out.println(sdf.format(dtEmprunt));
-		String query = "INSERT INTO emprunteexemplaire(cin, numInvantaire, dateEmprunt) VALUES('" + cin + "','" + numInv + "'," + "STR_TO_DATE('"+ sdf.format(dtEmprunt) + "','%Y-%m-%d'))";                             
+		String query = "INSERT INTO emprunteexemplaire(cin, numInvantaire, dateEmprunt) VALUES('" + cin + "','" + exemplaireId + "'," + "STR_TO_DATE('"+ sdf.format(dtEmprunt) + "','%Y-%m-%d'))";                             
 		
 		try {
 			
@@ -107,6 +123,58 @@ public class EmpruntModel {
 		}catch(Exception e) {
 			
 			e.printStackTrace();
+			
+		}
+		
+	}
+	
+	public void enregistrerEmprunte() throws Exception{
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String queryEmprunteExemplaire = "UPDATE emprunteexemplaire " + 
+				"SET dateretour = STR_TO_DATE('" + sdf.format(dtRetour) + "' , '%Y-%m-%d') " +
+				"WHERE cin = '" + this.cin + "' " + 
+				"AND numinvantaire = '" + this.exemplaireId + "' " + 
+				"AND dateemprunt = STR_TO_DATE('" + sdf.format(dtEmprunt) + "' , '%Y-%m-%d') " ; 
+				  
+		
+		try {
+			
+			Statement st = currentCnx.getMyCnx().createStatement(); 
+			st.executeUpdate(queryEmprunteExemplaire);
+			
+			
+		}catch(Exception e) {
+			
+			e.printStackTrace();
+			throw new Exception(); 
+			
+		}
+		
+	}
+	
+	public void enregistrerThese() throws Exception{
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String queryEmprunteExemplaire = "UPDATE empruntthese " + 
+				"SET dateretour = STR_TO_DATE('" + sdf.format(dtRetour) + "' , '%Y-%m-%d') " +
+				"WHERE cin = '" + this.cin + "' " + 
+				"AND titre = '" + this.exemplaireId + "' " + 
+				"AND dateemprunt = STR_TO_DATE('" + sdf.format(dtEmprunt) + "' , '%Y-%m-%d') " ; 
+		
+		
+		try {
+			
+			Statement st = currentCnx.getMyCnx().createStatement(); 
+			st.executeUpdate(queryEmprunteExemplaire);
+			
+			
+		}catch(Exception e) {
+			
+			e.printStackTrace();
+			throw new Exception(); 
 			
 		}
 		

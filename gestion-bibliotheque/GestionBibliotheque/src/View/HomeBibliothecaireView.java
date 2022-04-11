@@ -14,6 +14,7 @@ public class HomeBibliothecaireView extends JFrame{
         
         initView(); 
         
+        this.setSize(new Dimension(1200,700));
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation( EXIT_ON_CLOSE );
@@ -24,56 +25,60 @@ public class HomeBibliothecaireView extends JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        enrEmpruntMenu = new javax.swing.JMenu();
-        newMenuItem = new javax.swing.JMenuItem();
-        gestionRetardMenu = new javax.swing.JMenu();
-        menuItemAfficherRetard = new javax.swing.JMenuItem();
-        menuRetourEmprunt = new javax.swing.JMenu();
-        menuItemEnrRetour = new javax.swing.JMenuItem();
+    	  jMenuBar1 = new javax.swing.JMenuBar();
+          enrEmpruntMenu = new javax.swing.JMenu();
+          newMenuItem = new javax.swing.JMenuItem();
+          gestionRetardMenu = new javax.swing.JMenu();
+          menuItemAfficherRetard = new javax.swing.JMenuItem();
+          menuRetourEmprunt = new javax.swing.JMenu();
+          menuItemRetourExemplaire = new javax.swing.JMenuItem();
+          menuItemRetourThese = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Home - Bibliothècaire");
-        setPreferredSize(new java.awt.Dimension(1200, 700));
+          setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+          setTitle("Home - Bibliotheque");
 
-        enrEmpruntMenu.setText("Enregistrer Emprunte");
+          enrEmpruntMenu.setText("Enregistrer Emprunte");
 
-        newMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        newMenuItem.setText("Nouveau Emprunt");
-        enrEmpruntMenu.add(newMenuItem);
+          newMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+          newMenuItem.setText("Nouveau Emprunt");
+          enrEmpruntMenu.add(newMenuItem);
 
-        jMenuBar1.add(enrEmpruntMenu);
+          jMenuBar1.add(enrEmpruntMenu);
 
-        gestionRetardMenu.setText("Gestion Retard");
+          gestionRetardMenu.setText("Gestion Retard");
 
-        menuItemAfficherRetard.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        menuItemAfficherRetard.setText("Afficher Les retards");
-        gestionRetardMenu.add(menuItemAfficherRetard);
+          menuItemAfficherRetard.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+          menuItemAfficherRetard.setText("Afficher Les retards");
+          gestionRetardMenu.add(menuItemAfficherRetard);
 
-        jMenuBar1.add(gestionRetardMenu);
+          jMenuBar1.add(gestionRetardMenu);
 
-        menuRetourEmprunt.setText("Retour D'un Emprunt");
+          menuRetourEmprunt.setText("Retour Emprunt");
 
-        menuItemEnrRetour.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        menuItemEnrRetour.setText("Enregistrer Retour Emprunt");
-        menuRetourEmprunt.add(menuItemEnrRetour);
+          menuItemRetourExemplaire.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+          menuItemRetourExemplaire.setText("Retour Exemplaire");
+          menuRetourEmprunt.add(menuItemRetourExemplaire);
 
-        jMenuBar1.add(menuRetourEmprunt);
+          menuItemRetourThese.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+          menuItemRetourThese.setText("Retour These");
+          menuRetourEmprunt.add(menuItemRetourThese);
 
-        setJMenuBar(jMenuBar1);
+          jMenuBar1.add(menuRetourEmprunt);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
-        );
+          setJMenuBar(jMenuBar1);
 
-        pack();
+          javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+          getContentPane().setLayout(layout);
+          layout.setHorizontalGroup(
+              layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addGap(0, 400, Short.MAX_VALUE)
+          );
+          layout.setVerticalGroup(
+              layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addGap(0, 277, Short.MAX_VALUE)
+          );
+
+          pack();
     }                      
 
     /**
@@ -118,18 +123,27 @@ public class HomeBibliothecaireView extends JFrame{
     }
     
     
-    public JMenuItem getEnrRetourMenuItem() {
-    	return menuItemEnrRetour;
-    }
+
+
+    public javax.swing.JMenuItem getMenuItemRetourExemplaire() {
+		return menuItemRetourExemplaire;
+	}
+
+
+	public javax.swing.JMenuItem getMenuItemRetourThese() {
+		return menuItemRetourThese;
+	}
 
 
 
-    // Variables declaration - do not modify                     
+
+	// Variables declaration - do not modify                     
     private javax.swing.JMenu enrEmpruntMenu;
     private javax.swing.JMenu gestionRetardMenu;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem menuItemAfficherRetard;
-    private javax.swing.JMenuItem menuItemEnrRetour;
+    private javax.swing.JMenuItem menuItemRetourExemplaire;
+    private javax.swing.JMenuItem menuItemRetourThese;
     private javax.swing.JMenu menuRetourEmprunt;
     private javax.swing.JMenuItem newMenuItem;
     // End of variables declaration            

@@ -7,6 +7,8 @@ import javax.swing.JOptionPane;
 
 import model.Connexion;
 import view.AfficherRetardView;
+import view.EnregistrerRetourExemplaireView;
+import view.EnregistrerRetourTheseView;
 import view.HomeBibliothecaireView;
 import view.VerifierExemplaireEnCoursView;
 
@@ -49,6 +51,29 @@ public class HomeBibController extends Controller{
 			}
 		});
 		
+		homeView.getMenuItemRetourExemplaire().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				EnregistrerRetourExemplaireView enrRetourEx = new EnregistrerRetourExemplaireView(); 
+				EnregistrerRetourExemplaireController enrRetourController = new EnregistrerRetourExemplaireController(enrRetourEx, cnxModel);
+				enrRetourController.initController();
+				
+			}
+		});
+		
+		homeView.getMenuItemRetourThese().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				EnregistrerRetourTheseView enrRetourTh = new EnregistrerRetourTheseView(); 
+				EnregistrerRetourTheseController ertController = new EnregistrerRetourTheseController(enrRetourTh, cnxModel); 
+				ertController.initController();
+				
+			}
+		});
 		
 	}
 
