@@ -100,6 +100,20 @@ public class EnregistrerRetourExemplaireController extends Controller{
 					return;
 				}
 				
+				try {
+					
+					long diffBetweenDates = DateChecker.differenceInDays(dtEmprunt, dtRetour); 
+					if(diffBetweenDates > 31 ) {
+						enrRetEx.triggerWarningMessage("La date de retour ne peut pas depasser la date d'emprunt de plus d'un mois. Vous pouver declarer la these comme perdu si la date de retour est correct. ", "Enregistrer Retour - Alerte ");
+						return; 
+					}
+					
+				}catch(Exception ex) {
+					
+					enrRetEx.triggerErrorMessage("Une erreur est survenue. Essayer en inserant une date de retour qui ne depasse pas la date d'emprunt de plus d'un mois", "Enregistrer Retour - Echec ");
+					
+				}
+				
 				EmpruntModel em = new EmpruntModel(currentCnx, cin, numInv, dtEmprunt, dtRetour); 
 				
 				try {
@@ -153,5 +167,7 @@ public class EnregistrerRetourExemplaireController extends Controller{
 		enrRetEx.getComboEtat().setEnabled(b);
 		
 	}
+	
+	
 
 }

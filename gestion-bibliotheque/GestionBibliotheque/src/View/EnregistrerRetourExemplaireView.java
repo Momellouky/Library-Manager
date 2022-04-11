@@ -299,4 +299,10 @@ public class EnregistrerRetourExemplaireView extends javax.swing.JFrame {
 		JOptionPane.showMessageDialog(this, msj, title, JOptionPane.INFORMATION_MESSAGE);
 		
 	}
+
+	public void triggerWarningMessage(String msj, String title) {
+		
+		JOptionPane.showMessageDialog(this, msj, title, JOptionPane.WARNING_MESSAGE);
+		
+	}
 }
