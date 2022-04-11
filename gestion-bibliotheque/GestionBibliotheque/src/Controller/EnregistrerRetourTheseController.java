@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import Util.DateChecker;
 import model.Connexion;
 import model.EmpruntModel;
 import model.ExemplaireModel;
@@ -29,7 +30,7 @@ public class EnregistrerRetourTheseController extends Controller{
 
 	public void initController() {
 		
-		enrTheseView.getDtDateRetour().setDate(getSysDate());
+		enrTheseView.getDtDateRetour().setDate(DateChecker.getSysDate());
 		
 		enrTheseView.getBtnAnnuler().addActionListener(new ActionListener() {
 			
@@ -76,14 +77,14 @@ public class EnregistrerRetourTheseController extends Controller{
 					return; 
 				}
 				
-				if(compareDates(dtEmprunt, dtRetour) > 0 ) {
+				if(DateChecker.compareDates(dtEmprunt, dtRetour) > 0 ) {
 					enrTheseView.triggerErrorMessage("La date de retour ne doit pas etre inferieure à la date d'emprunt! ", "Enregistrer Retour - erreur de saisie"); 
 					return;
 				}
 				
 				try {
 					
-					long diffBetweenDates = differenceInDays(dtEmprunt, dtRetour); 
+					long diffBetweenDates = DateChecker.differenceInDays(dtEmprunt, dtRetour); 
 					if(diffBetweenDates > 31 ) {
 						enrTheseView.triggerWarningMessage("La date de retour ne peut pas depasser la date d'emprunt de plus d'un mois. Vous pouver declarer la these comme perdu si la date de retour est correct. ", "Enregistrer Retour - Alerte ");
 						return; 
@@ -114,51 +115,7 @@ public class EnregistrerRetourTheseController extends Controller{
 		
 	}
 	
-	private Date getSysDate() {
-		
-		Calendar c = Calendar.getInstance(); 
-		Date sysDate = c.getTime(); 
-		return sysDate; 
-		
-	}
-	
-	
-	private long differenceInDays(Date d1, Date d2) throws Exception{
-		
-		SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
-//		String inputString1 = "23 01 1997";
-//		String inputString2 = "27 04 1997";
 
-		try {
-		    Date date1 = d1;
-		    Date date2 = d2;
-		    long diff = date2.getTime() - date1.getTime();
-		    return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS); 
-		} catch (Exception e) {
-		    e.printStackTrace();
-		    throw new Exception(); 
-		}
-		
-	}
-	
-	private int compareDates(Date d1, Date d2) {
-		
-	      SimpleDateFormat sdformat = new SimpleDateFormat("yyyy-MM-dd");
-	      
-	      System.out.println("The date 1 is: " + sdformat.format(d1));
-	      System.out.println("The date 2 is: " + sdformat.format(d2));
-	      
-	      if(d1.compareTo(d2) > 0) {
-	    	  return 1; 
-	      } else if(d1.compareTo(d2) < 0) {
-	         return -1; 
-	      } else if(d1.compareTo(d2) == 0) {
-	         return 0; 
-	      }
-	      
-	      return Integer.MAX_VALUE; 
-		
-	}
 	
 
 }

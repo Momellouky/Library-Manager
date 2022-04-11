@@ -9,6 +9,7 @@ import java.util.Date;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import Util.DateChecker;
 import model.Connexion;
 import model.EmpruntModel;
 import model.ExemplaireModel;
@@ -28,7 +29,7 @@ public class EnregistrerRetourExemplaireController extends Controller{
 	
 	public void initController() {
 		
-		enrRetEx.getDtDateRetour().setDate(getSysDate());
+		enrRetEx.getDtDateRetour().setDate(DateChecker.getSysDate());
 		
 		changeStateComboEtat(false); 
 		
@@ -146,13 +147,6 @@ public class EnregistrerRetourExemplaireController extends Controller{
 		
 	}
 	
-	private Date getSysDate() {
-		
-		Calendar c = Calendar.getInstance(); 
-		Date sysDate = c.getTime(); 
-		return sysDate; 
-		
-	}
 	
 	private void changeStateComboEtat(boolean b) {
 		
