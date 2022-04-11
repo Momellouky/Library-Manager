@@ -148,13 +148,8 @@ public class EnregistrerRetourExemplaireController extends Controller{
 					ex.printStackTrace(); 
 					enrRetEx.triggerErrorMessage("Une erreur est servenue lors de l'enregistrement de l'emprunt. Ressayer s'il vous plait. ", "Enregistrer Retour - erreur d'enregistrement des données" ); 
 				}
-				
-
-				
-				
-				
-				
-				
+			
+				clearTextFields();
 				
 			}
 		});
@@ -165,6 +160,23 @@ public class EnregistrerRetourExemplaireController extends Controller{
 	private void changeStateComboEtat(boolean b) {
 		
 		enrRetEx.getComboEtat().setEnabled(b);
+		
+	}
+	
+	
+	private void clearTextFields() {
+		
+		enrRetEx.getTxtCin().setText(null);
+		enrRetEx.getTxtNumInv().setText(null);
+		enrRetEx.getDtDateEmprunt().setDate(null);
+		
+		enrRetEx.getDtDateRetour().setDate(DateChecker.getSysDate());
+		
+		enrRetEx.getCheckBoxEmprunt().setSelected(false);
+		
+		enrRetEx.getComboEtat().setSelectedIndex(0);
+		
+		enrRetEx.getComboEtat().setEnabled(false);
 		
 	}
 	

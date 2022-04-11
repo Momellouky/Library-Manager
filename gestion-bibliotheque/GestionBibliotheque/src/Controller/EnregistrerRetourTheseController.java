@@ -109,13 +109,22 @@ public class EnregistrerRetourTheseController extends Controller{
 					enrTheseView.triggerErrorMessage("Une erreur est servenue lors de l'enregistrement de l'emprunt. Ressayer s'il vous plait. ", "Enregistrer Retour - erreur d'enregistrement des données" ); 
 				}
 				
-				
+				clearTextFields();
 			}
 		});
 		
 	}
 	
+	private void clearTextFields() {
+		
+		enrTheseView.getTxtCin().setText(null);
+		enrTheseView.getTxtTitre().setText(null);
+		enrTheseView.getDtDateEmprunt().setDate(null);
+		
+		enrTheseView.getDtDateRetour().setDate(DateChecker.getSysDate());
 
+		
+	}
 	
 
 }
