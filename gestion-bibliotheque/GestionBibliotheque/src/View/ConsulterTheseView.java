@@ -1,6 +1,8 @@
 package view;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.*;
 
 public class ConsulterTheseView extends javax.swing.JFrame {
@@ -30,33 +32,31 @@ public class ConsulterTheseView extends javax.swing.JFrame {
 
         tblPanel = new javax.swing.JPanel();
         jScrollPaneTbl = new javax.swing.JScrollPane();
-        tblLivre = new javax.swing.JTable();
+        tblThese = new javax.swing.JTable();
         btnModifier = new javax.swing.JButton();
         btnSuprimer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consultation Des Theses");
 
-        tblLivre.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Titre", "Auteur", "Date De Soutenence"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, true, true
-            };
+        tblTheseModel = new DefaultTableModel(
+                new Object [][] {
+                },
+                new String [] {
+                    "Titre", "Auteur", "Date De Soutenence"
+                }
+            ) {
+                boolean[] canEdit = new boolean [] {
+                    false, true, true
+                };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPaneTbl.setViewportView(tblLivre);
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit [columnIndex];
+                }
+            }; 
+        		
+        tblThese.setModel(tblTheseModel);
+        jScrollPaneTbl.setViewportView(tblThese);
 
         javax.swing.GroupLayout tblPanelLayout = new javax.swing.GroupLayout(tblPanel);
         tblPanel.setLayout(tblPanelLayout);
@@ -130,11 +130,59 @@ public class ConsulterTheseView extends javax.swing.JFrame {
 
     }
 
-    // Variables declaration - do not modify                     
+    
+    
+    public javax.swing.JButton getBtnModifier() {
+		return btnModifier;
+	}
+
+	public javax.swing.JButton getBtnSuprimer() {
+		return btnSuprimer;
+	}
+
+	public javax.swing.JScrollPane getjScrollPaneTbl() {
+		return jScrollPaneTbl;
+	}
+
+	public javax.swing.JTable getTblThese() {
+		return tblThese;
+	}
+
+	public DefaultTableModel getTblTheseModel() {
+		return tblTheseModel;
+	}
+
+	public javax.swing.JPanel getTblPanel() {
+		return tblPanel;
+	}
+
+
+
+	// Variables declaration - do not modify                     
     private javax.swing.JButton btnModifier;
     private javax.swing.JButton btnSuprimer;
     private javax.swing.JScrollPane jScrollPaneTbl;
-    private javax.swing.JTable tblLivre;
+    private javax.swing.JTable tblThese;
+    private DefaultTableModel tblTheseModel; 
     private javax.swing.JPanel tblPanel;
-    // End of variables declaration                   
+    // End of variables declaration   
+    
+    
+	public void showMessage(String msj, String title) {
+		
+		JOptionPane.showMessageDialog(this, msj, title, JOptionPane.INFORMATION_MESSAGE);
+		
+	}
+
+	public void triggerErrorMessage(String msj, String title) {
+		
+		JOptionPane.showMessageDialog(this, msj, title, JOptionPane.ERROR_MESSAGE);
+		
+	}
+
+	public int ConfermToDelete(String msj, String title) {
+		
+		return JOptionPane.showConfirmDialog(this, msj, title, JOptionPane.YES_NO_OPTION);
+	
+	}
 }

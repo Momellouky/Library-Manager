@@ -23,11 +23,11 @@ public class LoginController extends Controller{
 		this.lv = lv; 
 		
 //		assMail = new String("assistant.fatma.hachimi@usmba.ac.ma"); 
-		assMail = new String(""); 
-		bibMail = new String("mail"); 
+		assMail = new String("mail"); 
+//		bibMail = new String("mail"); 
 //		assMdp = new String("1234abcd"); 
-		assMdp = new String(""); 
-		bibMdp = new String("mail"); 
+		assMdp = new String("mail"); 
+//		bibMdp = new String("mail"); 
 		
 		cnxModel = new Connexion(); 
 		

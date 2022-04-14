@@ -8,6 +8,7 @@ DROP TABLE IF EXISTS EmprunteExemplaire;
 DROP TABLE IF EXISTS exemplaire;
 DROP TABLE IF EXISTS MotsClesLivre;
 DROP TABLE IF EXISTS MotsCles; 
+DROP TABLE IF EXISTS ecrireLivre; 
 DROP TABLE IF EXISTS livre;  
 DROP TABLE IF EXISTS document;  
 
@@ -15,8 +16,11 @@ DROP TABLE IF EXISTS enseignant;
 DROP TABLE IF EXISTS etudiant;  
 DROP TABLE IF EXISTS usager;  
 
+DROP TABLE IF EXISTS ecrireThese;  
 DROP TABLE IF EXISTS these;  
 
+
+set FOREIGN_KEY_CHECKS = 0; 
 
 CREATE TABLE IF NOT EXISTS usager (
 
@@ -42,7 +46,7 @@ CREATE TABLE IF NOT EXISTS enseignant (
     CONSTRAINT
         fk_enseignant_cin
         FOREIGN KEY(cin) 
-        REFERENCES usager(CIN)
+        REFERENCES usager(CIN) ON DELETE CASCADE
             
 )ENGINE = innoDB; 
 
@@ -56,7 +60,7 @@ CREATE TABLE IF NOT EXISTS etudiant (
     CONSTRAINT
         fk_etudiant_cin
         FOREIGN KEY(cin) 
-        REFERENCES usager(CIN)
+        REFERENCES usager(CIN) ON DELETE CASCADE
             
 )ENGINE = innoDB; 
 
@@ -81,13 +85,12 @@ CREATE TABLE IF NOT EXISTS livre (
     CONSTRAINT
         fk_livre_cin
         FOREIGN KEY(Titre) 
-        REFERENCES document(titre)
+        REFERENCES document(titre) ON DELETE CASCADE
             
 )ENGINE = innoDB; 
-
 CREATE TABLE IF NOT EXISTS exemplaire (
 
-    numInvantaire           VARCHAR(12)                  , 
+    numInvantaire           VARCHAR(13)                  , 
     ISBN                    VARCHAR(13)                 , 
     etat                    VARCHAR(20)                 , 
     CONSTRAINT
@@ -96,13 +99,13 @@ CREATE TABLE IF NOT EXISTS exemplaire (
     CONSTRAINT
         fk_exemplaire_numInvantaire
         FOREIGN KEY(numInvantaire) 
-        REFERENCES livre(ISBN)
+        REFERENCES livre(ISBN) ON DELETE CASCADE
             
 )ENGINE = innoDB; 
 
 CREATE TABLE IF NOT EXISTS these (
 
-    Titre                             VARCHAR(30)                  , 
+    Titre                             VARCHAR(500)                  , 
     DateSoutenance                    DATE                         , 
     CONSTRAINT
         pk_these_Titre
@@ -113,7 +116,7 @@ CREATE TABLE IF NOT EXISTS these (
 CREATE TABLE IF NOT EXISTS EmprunteExemplaire (
 
     CIN                              VARCHAR(8)                  , 
-    numInvantaire                    VARCHAR(12)                 , 
+    numInvantaire                    VARCHAR(13)                 , 
     dateEmprunt                      DATE                        , 
     dateRelence                      DATE                        , 
     dateRetour                      DATE                        , 
@@ -123,11 +126,11 @@ CREATE TABLE IF NOT EXISTS EmprunteExemplaire (
     CONSTRAINT
         fk_EmprunteExemplaire_cin
         FOREIGN KEY(CIN) 
-        REFERENCES etudiant(CIN), 
+        REFERENCES etudiant(CIN) ON DELETE CASCADE, 
     CONSTRAINT
         fk_EmprunteExemplaire_numInvantaire
         FOREIGN KEY(numInvantaire) 
-        REFERENCES exemplaire(numInvantaire)
+        REFERENCES exemplaire(numInvantaire) ON DELETE CASCADE
 
             
 )ENGINE = innoDB; 
@@ -135,7 +138,7 @@ CREATE TABLE IF NOT EXISTS EmprunteExemplaire (
 CREATE TABLE IF NOT EXISTS EmpruntThese (
 
     CIN                              VARCHAR(8)                  , 
-    titre                            VARCHAR(100)                 , 
+    titre                            VARCHAR(500)                 , 
     dateEmprunt                      DATE                        , 
     dateRelence                      DATE                        , 
     dateRetour                       DATE                        , 
@@ -145,11 +148,11 @@ CREATE TABLE IF NOT EXISTS EmpruntThese (
     CONSTRAINT
         fk_EmpruntThese_cin
         FOREIGN KEY(CIN) 
-        REFERENCES etudiant(CIN), 
+        REFERENCES etudiant(CIN) ON DELETE CASCADE, 
     CONSTRAINT
         fk_EmpruntThese_numInvantaire
         FOREIGN KEY(titre) 
-        REFERENCES these(titre)
+        REFERENCES these(titre) ON DELETE CASCADE
 
             
 )ENGINE = innoDB; 
@@ -175,12 +178,12 @@ CREATE TABLE IF NOT EXISTS MotsClesLivre (
     CONSTRAINT
         fk_MotsClesLivre_ISBN
         FOREIGN KEY (ISBN)
-        REFERENCES livre(ISBN),
+        REFERENCES livre(ISBN) ON DELETE CASCADE,
 
     CONSTRAINT
         fk_MotsClesLivre_mot
         FOREIGN KEY (mot)
-        REFERENCES MotsCles(mot) 
+        REFERENCES MotsCles(mot)  ON DELETE CASCADE
 
             
 )ENGINE = innoDB; 
@@ -206,11 +209,11 @@ CREATE TABLE IF NOT EXISTS ecrireLivre (
     CONSTRAINT
         fk_ecrireLivre_idAuteur
         FOREIGN KEY(idAuteur)
-        REFERENCES Auteur(id), 
+        REFERENCES Auteur(id) ON DELETE CASCADE, 
     CONSTRAINT
         fk_ecrireLivre_isbnLivre
         FOREIGN KEY (isbnLivre)
-        REFERENCES livre(isbn)
+        REFERENCES livre(isbn) ON DELETE CASCADE
             
 )ENGINE = innoDB; 
 
@@ -222,12 +225,12 @@ CREATE TABLE IF NOT EXISTS ecrireThese (
         pk__ecrireThese_idAuteur_titre
         PRIMARY KEY (idAuteur, titreThese),
     CONSTRAINT
-        fk_ecrireLivre_idAuteur
+        fk_ecrireThese_idAuteur
         FOREIGN KEY(idAuteur)
-        REFERENCES Auteur(id), 
+        REFERENCES Auteur(id) ON DELETE CASCADE, 
     CONSTRAINT
         fk_ecrireThese_titreThese
         FOREIGN KEY (titreThese)
-        REFERENCES these(titre)
+        REFERENCES these(titre) ON DELETE CASCADE
             
 )ENGINE = innoDB; 

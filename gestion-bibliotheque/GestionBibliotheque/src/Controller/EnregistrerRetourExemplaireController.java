@@ -104,13 +104,16 @@ public class EnregistrerRetourExemplaireController extends Controller{
 					
 					long diffBetweenDates = DateChecker.differenceInDays(dtEmprunt, dtRetour); 
 					if(diffBetweenDates > 31 ) {
+						
 						enrRetEx.triggerWarningMessage("La date de retour ne peut pas depasser la date d'emprunt de plus d'un mois. Vous pouver declarer la these comme perdu si la date de retour est correct. ", "Enregistrer Retour - Alerte ");
 						return; 
+						
 					}
 					
 				}catch(Exception ex) {
 					
 					enrRetEx.triggerErrorMessage("Une erreur est survenue. Essayer en inserant une date de retour qui ne depasse pas la date d'emprunt de plus d'un mois", "Enregistrer Retour - Echec ");
+					return ; 
 					
 				}
 				
@@ -133,6 +136,7 @@ public class EnregistrerRetourExemplaireController extends Controller{
 						}catch(Exception ex) {
 							
 							enrRetEx.triggerErrorMessage("Une erreur est survenue lors de l'enregistrement du retour. Resseyer s'il vous plait. ", "Enregistrement Retour - Erreur d'enregistrement"); 
+							return ; 
 							
 						}
 						
@@ -147,9 +151,11 @@ public class EnregistrerRetourExemplaireController extends Controller{
 				}catch(Exception ex) {
 					ex.printStackTrace(); 
 					enrRetEx.triggerErrorMessage("Une erreur est servenue lors de l'enregistrement de l'emprunt. Ressayer s'il vous plait. ", "Enregistrer Retour - erreur d'enregistrement des données" ); 
+					return; 
 				}
 			
 				clearTextFields();
+				enrRetEx.getTxtCin().requestFocus();
 				
 			}
 		});

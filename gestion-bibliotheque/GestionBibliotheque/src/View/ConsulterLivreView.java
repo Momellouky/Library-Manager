@@ -1,6 +1,8 @@
 package view;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.*;
 
 public class ConsulterLivreView extends javax.swing.JFrame {
@@ -36,26 +38,17 @@ public class ConsulterLivreView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consultation Des Livres");
-
-        tblLivre.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "ISBN", "Livre", "Nombre d'exemplaires disponibles"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, true, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        
+        tblModelLivre = new DefaultTableModel(
+                new Object [][] {
+              	  
+                },
+                new String [] {
+                    "ISBN", "Titre", "Date Edition"
+                }
+        		); 
+        tblLivre.setModel(tblModelLivre);
+        
         jScrollPaneTbl.setViewportView(tblLivre);
 
         javax.swing.GroupLayout tblPanelLayout = new javax.swing.GroupLayout(tblPanel);
@@ -129,12 +122,60 @@ public class ConsulterLivreView extends javax.swing.JFrame {
         }
 
     }
+    
+    
 
-    // Variables declaration - do not modify                     
+    public javax.swing.JButton getBtnModifier() {
+		return btnModifier;
+	}
+
+	public javax.swing.JButton getBtnSuprimer() {
+		return btnSuprimer;
+	}
+
+	public javax.swing.JScrollPane getjScrollPaneTbl() {
+		return jScrollPaneTbl;
+	}
+
+	public javax.swing.JTable getTblLivre() {
+		return tblLivre;
+	}
+
+	public DefaultTableModel getTblModelLivre() {
+		return tblModelLivre;
+	}
+
+	public javax.swing.JPanel getTblPanel() {
+		return tblPanel;
+	}
+
+	
+
+	// Variables declaration - do not modify                     
     private javax.swing.JButton btnModifier;
     private javax.swing.JButton btnSuprimer;
     private javax.swing.JScrollPane jScrollPaneTbl;
     private javax.swing.JTable tblLivre;
+    private DefaultTableModel tblModelLivre; 
     private javax.swing.JPanel tblPanel;
-    // End of variables declaration                   
+    // End of variables declaration            
+    
+    
+	public void showMessage(String msj, String title) {
+		
+		JOptionPane.showMessageDialog(this, msj, title, JOptionPane.INFORMATION_MESSAGE);
+		
+	}
+
+	public void triggerErrorMessage(String msj, String title) {
+		
+		JOptionPane.showMessageDialog(this, msj, title, JOptionPane.ERROR_MESSAGE);
+		
+	}
+
+	public int ConfermToDelete(String msj, String title) {
+		
+		return JOptionPane.showConfirmDialog(this, msj, title, JOptionPane.YES_NO_OPTION);
+	
+	}
 }

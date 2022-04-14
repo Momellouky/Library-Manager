@@ -32,7 +32,9 @@ public class HomeAssistantController extends Controller {
 			public void actionPerformed(ActionEvent e) {
 				
 				ConsulterLivreView clv = new ConsulterLivreView(); 
-				 
+				ConsulterLivreController clvController = new ConsulterLivreController(clv, cnxModel); 
+				clvController.initController();
+				
 			}
 		});
 		
@@ -42,6 +44,8 @@ public class HomeAssistantController extends Controller {
 			public void actionPerformed(ActionEvent e) {
 				
 				ConsulterTheseView ctv = new ConsulterTheseView(); 
+				ConsulterTheseController ctController = new ConsulterTheseController(ctv, cnxModel); 
+				ctController.initController(); 
 				
 			}
 		});
@@ -52,6 +56,8 @@ public class HomeAssistantController extends Controller {
 			public void actionPerformed(ActionEvent e) {
 				
 				ConsulterEtudiantView ctv = new ConsulterEtudiantView(); 
+				ConsulterEtudiantController ceC = new ConsulterEtudiantController(ctv, cnxModel); 
+				ceC.initController(); 
 				
 			}
 		});
@@ -62,6 +68,8 @@ public class HomeAssistantController extends Controller {
 			public void actionPerformed(ActionEvent e) {
 				
 				ConsulterEnsView ctv = new ConsulterEnsView(); 
+				ConsulterEnsController ceC = new ConsulterEnsController(ctv, cnxModel); 
+				ceC.initController();
 				
 			}
 		});

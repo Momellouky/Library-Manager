@@ -48,7 +48,7 @@ public class Connexion {
 		
 	}
 	
-	public ResultSet requete(String table, String condition) {
+	public ResultSet requete(String table) throws Exception{
 		
 		ResultSet rs = null; 
 		String query = "SELECT * FROM " + table ; 
@@ -59,6 +59,8 @@ public class Connexion {
 			rs = st.executeQuery(query); 
 			
 		}catch(Exception e) {
+			
+			throw new Exception(); 
 			
 		}
 			

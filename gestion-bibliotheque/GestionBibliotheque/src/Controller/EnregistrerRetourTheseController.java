@@ -93,6 +93,7 @@ public class EnregistrerRetourTheseController extends Controller{
 				}catch(Exception ex) {
 					
 					enrTheseView.triggerErrorMessage("Une erreur est survenue. Essayer en inserant une date de retour qui ne depasse pas la date d'emprunt de plus d'un mois", "Enregistrer Retour - Echec ");
+					return; 
 					
 				}
 				
@@ -107,9 +108,11 @@ public class EnregistrerRetourTheseController extends Controller{
 					
 					ex.printStackTrace(); 
 					enrTheseView.triggerErrorMessage("Une erreur est servenue lors de l'enregistrement de l'emprunt. Ressayer s'il vous plait. ", "Enregistrer Retour - erreur d'enregistrement des données" ); 
+					return; 
 				}
 				
 				clearTextFields();
+				enrTheseView.getTxtCin().requestFocus();
 			}
 		});
 		
