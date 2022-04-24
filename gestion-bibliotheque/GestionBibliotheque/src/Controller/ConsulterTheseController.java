@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import model.Connexion;
 import model.TheseModel;
 import view.ConsulterTheseView;
+import view.modifierTheseView;
 
 public class ConsulterTheseController extends Controller{
 
@@ -32,6 +33,12 @@ public class ConsulterTheseController extends Controller{
 			public void actionPerformed(ActionEvent e) {
 				
 				int selectedIndex = consulterTheseView.getTblThese().getSelectedRow(); 
+				
+				if(selectedIndex < 0) {
+					consulterTheseView.triggerErrorMessage("Selectionner une these à supprimer", "Alerte"); 
+					return ; 
+					
+				}
 				Object theseName = consulterTheseView.getTblTheseModel().getValueAt(selectedIndex, 0);
 				
 				int rep = consulterTheseView.ConfermToDelete("Vous etes sur de supprimer la these : " + theseName + " ? " , "Attention! "); 
@@ -65,6 +72,27 @@ public class ConsulterTheseController extends Controller{
 					
 			}
 		}});
+		
+		consulterTheseView.getBtnModifier().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				int row = consulterTheseView.getTblThese().getSelectedRow(); 
+				if(row < 0 ) {
+					
+					consulterTheseView.triggerErrorMessage("Selectionner une thèse pour procéder", "Modifier These - Erreur"); 
+					
+				}else {
+
+					modifierTheseView mtv = new modifierTheseView(); 
+					modifierTheseController mtc = new modifierTheseController(mtv, consulterTheseView, currentCnx); 
+					mtc.initController(); 
+					
+				}
+				
+			}
+		});
 		
 	}
 	

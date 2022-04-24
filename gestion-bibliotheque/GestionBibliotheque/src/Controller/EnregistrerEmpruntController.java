@@ -128,6 +128,31 @@ public class EnregistrerEmpruntController extends Controller{
 					
 					
 				}
+				if(verDispoView.getRadioThese().isSelected() == true ) {
+					
+
+					String cin = enrEmpView.getTxtCin().getText().trim(); 
+					Date dtEmprunte = enrEmpView.getDtDateEmprunt().getDate(); 
+					numInv = enrEmpView.getTxtFirst().getText().trim(); // titre du these
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
+					String dateEm = sdf.format(dtEmprunte); 
+					EmpruntModel em = new EmpruntModel(currentCnx);
+					
+					try {
+						System.out.println(dtEmprunte);
+						em.insertEmpruntThese(cin, numInv, dateEm); 
+						JOptionPane.showMessageDialog(enrEmpView, "Emprunt est enregistrer", "Enregistrement", JOptionPane.INFORMATION_MESSAGE); 
+					
+					}catch(Exception ex) {
+						
+						ex.printStackTrace();
+						JOptionPane.showMessageDialog(enrEmpView, "Emprunt n'est pas enregistrer", "Enregistrement", JOptionPane.ERROR_MESSAGE); 
+
+						
+					}
+					
+					
+				}
 				
 				
 			}
@@ -158,32 +183,41 @@ public class EnregistrerEmpruntController extends Controller{
 	
 	private void setEmpruntInfo(UsagerModel um) {
 		
-		Calendar c = Calendar.getInstance(); // starts with today's date and time
-		Date today = c.getTime();  
+		Calendar todayDate = Calendar.getInstance(); // starts with today's date and time
+		Date today = todayDate.getTime();  
 		Calendar datePrevueRetour = null; 
 		
 		enrEmpView.getDtDateEmprunt().setDate(today);
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); 
+//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); 
+//		
+//		Date d = new Date(); 
+//		
+//		c = new GregorianCalendar(); 
 		
-		Date d = new Date(); 
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date()); // Using today's date
+
+
 		
-		c = new GregorianCalendar(); 
-		
-		
-		if(um.isEnseignant(enrEmpView.getLblCin().getText()) == true ) {
+		System.out.println(enrEmpView.getTxtCin().getText());
+		if(um.isEnseignant(enrEmpView.getTxtCin().getText()) == true ) {
 			
-			c.add(Calendar.DAY_OF_YEAR, 15); 
+			System.out.println("Ense");
+			c.add(Calendar.DATE, 15); 
 			
 		}else if( um.isEtudiant(enrEmpView.getTxtCin().getText()) == true ){
 			
-			c.add(Calendar.DAY_OF_YEAR, 7); 
+			System.out.println("Etudiant");
+			c.add(Calendar.DATE, 7); 
 			
 		}
 		
-		d = c.getTime(); 
+		String output = sdf.format(c.getTime());
+		System.out.println(output);
 		
-	    enrEmpView.getTxtDatePrevueRetour().setText(sdf.format(d)); 
+	    enrEmpView.getTxtDatePrevueRetour().setText(output); 
 	    
 	}
 	
@@ -216,8 +250,9 @@ public class EnregistrerEmpruntController extends Controller{
 		}else if(verDispoView.getRadioThese().isSelected() == true) {
 			
 			enrEmpView.getTxtFirst().setText(verDispoView.getTxtTitre().getText());
+			
 			enrEmpView.getTxtSecond().setText(verDispoView.getLblSecondText().getText());
-			enrEmpView.getTxtSecond().setText(null);
+			enrEmpView.getTxtThird().setText(null);
 			
 		}
 		

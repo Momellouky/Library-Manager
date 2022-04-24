@@ -16,6 +16,9 @@ public class ConsulterLivreView extends javax.swing.JFrame {
         
         initView(); 
         
+        ImageIcon img = new ImageIcon(getClass().getResource("/ressources/icon.png"));
+        setIconImage(img.getImage());
+        
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);

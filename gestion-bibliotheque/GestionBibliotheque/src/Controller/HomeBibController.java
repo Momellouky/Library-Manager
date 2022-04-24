@@ -6,7 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import model.Connexion;
-import view.AfficherRetardView;
+import model.EmpruntModel;
+import model.ExemplaireModel;
+import model.TheseModel;
+import view.AfficherRetardJrsView;
+import view.AfficherRetardMoisView;
 import view.EnregistrerRetourExemplaireView;
 import view.EnregistrerRetourTheseView;
 import view.HomeBibliothecaireView;
@@ -27,7 +31,7 @@ public class HomeBibController extends Controller{
 	@Override
 	public void initController() {
 		
-		homeView.getNewEmpruntMenuItem().addActionListener(new ActionListener() {
+		homeView.getNewMenuItem().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -39,14 +43,30 @@ public class HomeBibController extends Controller{
 			}
 		});
 		
-		homeView.getAfficherRetardMenuItem().addActionListener(new ActionListener() {
+		homeView.getRetardJrs().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				AfficherRetardView affRetardView = new AfficherRetardView(); 
-				AfficherRetardController verExC = new AfficherRetardController(affRetardView); 
-				verExC.initController();
+				AfficherRetardJrsView affRetardView = new AfficherRetardJrsView();
+				TheseModel tm = new TheseModel(cnxModel); 
+				EmpruntModel em = new EmpruntModel(cnxModel); 
+				AfficherRetardController arc = new AfficherRetardController(affRetardView, em); 
+				arc.initController();
+				
+			}
+		});
+		
+		homeView.getRetardMois().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				AfficherRetardMoisView affRetardView = new AfficherRetardMoisView();
+				TheseModel tm = new TheseModel(cnxModel); 
+				EmpruntModel em = new EmpruntModel(cnxModel); 
+				AfficherRetardMoisController arc = new AfficherRetardMoisController(affRetardView, em); 
+				arc.initController();
 				
 			}
 		});

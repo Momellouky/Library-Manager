@@ -23,11 +23,11 @@ public class LoginController extends Controller{
 		this.lv = lv; 
 		
 //		assMail = new String("assistant.fatma.hachimi@usmba.ac.ma"); 
-		assMail = new String("mail"); 
-//		bibMail = new String("mail"); 
+//		assMail = new String("mail"); 
+		bibMail = new String("mail"); 
 //		assMdp = new String("1234abcd"); 
-		assMdp = new String("mail"); 
-//		bibMdp = new String("mail"); 
+//		assMdp = new String("mail"); 
+		bibMdp = new String("mail"); 
 		
 		cnxModel = new Connexion(); 
 		
@@ -59,13 +59,13 @@ public class LoginController extends Controller{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				if(lv.getTxtEmail().getText().length() == 0 ) {
+				if(lv.getTxtEmail().getText().trim().length() == 0 ) {
 					
 					JOptionPane.showMessageDialog(lv, "Saisir l'e-mail correctement pour vous connecter."
 							, "Les champs ne sont pas bien saisie", JOptionPane.ERROR_MESSAGE);
 					
 				}
-				else if(lv.getTxtMdp().getText().length() == 0 ) {
+				else if(lv.getTxtMdp().getText().trim().length() == 0 ) {
 					
 					JOptionPane.showMessageDialog(lv, "Saisir le mot de passe correctement pour vous connecter."
 							, "Les champs ne sont pas bien saisie", JOptionPane.ERROR_MESSAGE);
@@ -100,6 +100,7 @@ public class LoginController extends Controller{
 					else {
 						
 						JOptionPane.showMessageDialog(lv,"E-mail ou mot de passe incorrecte.", "Erreur d'authentification", JOptionPane.ERROR_MESSAGE); 
+						lv.getTxtEmail().requestFocus(); 
 						
 					}
 

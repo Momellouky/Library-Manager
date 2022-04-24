@@ -46,14 +46,14 @@ public class UsagerModel {
 			Statement st = currentCnx.getMyCnx().createStatement();
 			rs = st.executeQuery(query); 
 			
-			if(rs.next() == true)
-				return true; 
+			if(rs.next() == false)
+				return false; 
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-		return false; 
+		return true; 
 		
 	}
 	

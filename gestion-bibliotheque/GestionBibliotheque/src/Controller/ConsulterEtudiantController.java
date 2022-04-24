@@ -11,6 +11,7 @@ import model.EnseignantModel;
 import model.EtudiantModel;
 import model.LivreModel;
 import view.ConsulterEtudiantView;
+import view.modifierEtudiantView;
 
 public class ConsulterEtudiantController extends Controller{
 	
@@ -33,6 +34,13 @@ public class ConsulterEtudiantController extends Controller{
 			public void actionPerformed(ActionEvent e) {
 				
 				int selectedIndex = consEtudiantView.getTblEtudiant().getSelectedRow(); 
+				
+				if(selectedIndex < 0 ) {
+					
+					consEtudiantView.triggerErrorMessage("Selectionner un etudiant à supprimer", "Alerte"); 
+					return ; 
+					
+				}
 				Object cinEtud = consEtudiantView.getTblModel().getValueAt(selectedIndex, 0);
 				
 				int rep = consEtudiantView.ConfermToDelete("Vous etes sur de supprimer l'etudiant: " + cinEtud + " ? " , "Attention! "); 
@@ -66,6 +74,30 @@ public class ConsulterEtudiantController extends Controller{
 					
 			}
 		}});
+		
+		consEtudiantView.getBtnModifier().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				int row = consEtudiantView.getTblEtudiant().getSelectedRow(); 
+				
+				if(row < 0 ) {
+					
+					consEtudiantView.triggerErrorMessage("Selectionner un etudiant", "Modifier Etudiant - Erreur"); 
+					
+				}else {
+					
+					modifierEtudiantView mev = new modifierEtudiantView(); 
+					modifierEtudiantController mec = new modifierEtudiantController(mev, consEtudiantView, currentCnx); 
+					mec.initController(); 
+					
+					
+				}
+				
+				
+			}
+		});
 		
 	}
 	

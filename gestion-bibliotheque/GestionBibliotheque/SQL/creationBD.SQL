@@ -234,3 +234,29 @@ CREATE TABLE IF NOT EXISTS ecrireThese (
         REFERENCES these(titre) ON DELETE CASCADE
             
 )ENGINE = innoDB; 
+
+CREATE TABLE IF NOT EXISTS exemplairePerdu(
+
+    numInvantaire varchar(13),
+    perdu boolean ,
+    CONSTRAINT 
+        pk_exemplairePerdu_numInvantaire 
+        primary key (numInvantaire), 
+    CONSTRAINT 
+        fk_exemplairePerdu_numInvantaire
+        FOREIGN key (numInvantaire) REFERENCES exemplaire(numInvantaire)
+
+)engine = innodb; 
+
+CREATE TABLE IF NOT EXISTS thesePerdu(
+
+    titre varchar(500),
+    perdu boolean ,
+    CONSTRAINT 
+        pk_thesePerdu_titre 
+        primary key (numInvantaire), 
+    CONSTRAINT 
+        fk_thesePerdu_titre
+        FOREIGN key (titre) REFERENCES these(titre)
+
+)engine = innodb; 

@@ -16,6 +16,9 @@ public class ConsulterTheseView extends javax.swing.JFrame {
         
         initView(); 
         
+        ImageIcon img = new ImageIcon(getClass().getResource("/ressources/icon.png"));
+        setIconImage(img.getImage());
+        
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -43,7 +46,7 @@ public class ConsulterTheseView extends javax.swing.JFrame {
                 new Object [][] {
                 },
                 new String [] {
-                    "Titre", "Auteur", "Date De Soutenence"
+                    "Titre", "Date De Soutenence"
                 }
             ) {
                 boolean[] canEdit = new boolean [] {
@@ -166,6 +169,7 @@ public class ConsulterTheseView extends javax.swing.JFrame {
     private DefaultTableModel tblTheseModel; 
     private javax.swing.JPanel tblPanel;
     // End of variables declaration   
+    
     
     
 	public void showMessage(String msj, String title) {

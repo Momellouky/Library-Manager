@@ -51,7 +51,7 @@ public class VerifierDispoExemplaireController extends Controller{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				String titre = verDispoView.getTxtTitre().getText(); 
+				String titre = verDispoView.getTxtTitre().getText().trim(); 
 				String table = new String(); 
 				EmpruntModel em = new EmpruntModel(currentCnx); 
 				ResultSet rs = null; 
@@ -88,15 +88,15 @@ public class VerifierDispoExemplaireController extends Controller{
 								
 								do {
 									if(rs.getString(1) == null || rs.getString(2) == null || rs.getString(3) == null || 
-											rs.getString(4) == null || rs.getString(5) == null ) {
+											rs.getString(4) == null) {
 										verDispoView.triggerErrorMessage("Une erreur est surevnue lors du chargement des données. Saisir l'identifiant du document correctement. ", "Enregistrer Emprunt - erreur");
 									}else {
 										
 										verDispoView.getLblSecondText().setText(rs.getString("titre")); 
-										verDispoView.getLblThirdText().setText(rs.getString(3) + " " + rs.getString(4)); 
-										verDispoView.getLblNombreExemplaireDisponible().setText(rs.getString("numExDispo")); 
+										verDispoView.getLblThirdText().setText(rs.getString("nom") + " " + rs.getString("prenom")); 
+										verDispoView.getLblNombreExemplaireDisponible().setText(rs.getString("nbrDispo")); 
 										numInvantaire = rs.getString("numinvantaire"); 
-										if(Integer.parseInt(rs.getString("numExDispo")) >= 1 )
+										if(Integer.parseInt(rs.getString("nbrDispo")) >= 1 )
 											verDispoView.getBtnEmprunter().setEnabled(true); 
 										
 									}
@@ -108,8 +108,14 @@ public class VerifierDispoExemplaireController extends Controller{
 							
 						}catch(SQLException ex){
 							
+							ex.printStackTrace();
 							verDispoView.triggerSQLError("Une erreur est surevenue lors de la recuperation des données." , "Enregistrer Emprunt - erreur"); 
+							emptyFields();
 							
+						}catch(Exception ex) {
+							
+							verDispoView.triggerSQLError("Une erreur est surevenue lors de la recuperation des données." , "Enregistrer Emprunt - erreur"); 
+							emptyFields(); 
 						}
 						
 					}
@@ -134,8 +140,8 @@ public class VerifierDispoExemplaireController extends Controller{
 							while(rs.next()) {
 								
 								verDispoView.getLblSecondText().setText(rs.getString("nom") + " " + rs.getString("prenom")); 
-								verDispoView.getLblNombreExemplaireDisponible().setText(rs.getString("nbrThese"));
-								if(Integer.parseInt(rs.getString(1)) >= 1 ) {
+								verDispoView.getLblNombreExemplaireDisponible().setText(rs.getString("nbrDispo"));
+								if(Integer.parseInt(rs.getString("nbrDispo")) >= 1 ) {
 									
 									verDispoView.getBtnEmprunter().setEnabled(true); 
 									
@@ -206,6 +212,7 @@ public class VerifierDispoExemplaireController extends Controller{
 		verDispoView.getLblSecondText().setText(null);
 		verDispoView.getLblThirdText().setText(null);
 		verDispoView.getLblNombreExemplaireDisponible().setText(null);
+		verDispoView.getTxtTitre().requestFocus();
 	}
 	
 	public String getNumIvantaire() {

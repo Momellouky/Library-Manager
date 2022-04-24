@@ -10,6 +10,7 @@ import model.Connexion;
 import model.EnseignantModel;
 import model.TheseModel;
 import view.ConsulterEnsView;
+import view.modifierEnseignantView;
 
 public class ConsulterEnsController extends Controller{
 	
@@ -32,6 +33,13 @@ public class ConsulterEnsController extends Controller{
 			public void actionPerformed(ActionEvent e) {
 				
 				int selectedIndex = consEnsView.getTblEns().getSelectedRow(); 
+				
+				if(selectedIndex < 0 ) {
+					
+					consEnsView.triggerErrorMessage("Selectionner un etudiant à supprimer", "Alerte"); 
+					return ; 
+					
+				}
 				Object ensCin = consEnsView.getTblModel().getValueAt(selectedIndex, 0);
 				
 				int rep = consEnsView.ConfermToDelete("Vous etes sur de supprimer l'enseignant : " + ensCin + " ? " , "Attention! "); 
@@ -65,6 +73,28 @@ public class ConsulterEnsController extends Controller{
 					
 			}
 		}});
+		
+		consEnsView.getBtnModifier().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				int row = consEnsView.getTblEns().getSelectedRow(); 
+				
+				if(row < 0) {
+					
+					consEnsView.triggerErrorMessage("Selectionner un enseignant.", "Modifier Enseignant - Alerte");
+					
+				}else {
+					
+					modifierEnseignantView mev = new modifierEnseignantView(); 
+					modifierEnseignantController mec = new modifierEnseignantController(mev, consEnsView, currentCnx); 
+					mec.initController();
+					
+				}
+				
+			}
+		});
 		
 		
 	}

@@ -4,6 +4,12 @@
  */
 package view;
 
+import java.awt.Dimension;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author HP
@@ -19,8 +25,13 @@ public class HomeAssistantView extends javax.swing.JFrame {
         
     	initView(); 
     	
-    	setVisible(true);
+        ImageIcon img = new ImageIcon(getClass().getResource("/ressources/icon.png"));
+        setIconImage(img.getImage());
+    	
+        this.setSize(new Dimension(1200,700));
+        this.setVisible(true);
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation( EXIT_ON_CLOSE );
     }
 
     /**
@@ -32,7 +43,10 @@ public class HomeAssistantView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
+    	menuBar = new javax.swing.JMenuBar();
+        menuAjouter = new javax.swing.JMenu();
+        menuItemThese = new javax.swing.JMenuItem();
+        menuItemLivre = new javax.swing.JMenuItem();
         menuDocument = new javax.swing.JMenu();
         menuItemConsulterLivre = new javax.swing.JMenuItem();
         menuItemConsulterThese = new javax.swing.JMenuItem();
@@ -43,7 +57,25 @@ public class HomeAssistantView extends javax.swing.JFrame {
         menuItemUpdateUsers = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 700));
+        
+        ImageIcon img = new ImageIcon(getClass().getResource("/ressources/bg.jpg"));
+        JLabel lblBg = new JLabel(img); 
+        this.setContentPane(lblBg); 
+        setTitle("Home - Assistant"); 
+
+        menuAjouter.setText("Ajouter");
+
+        menuItemThese.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuItemThese.setMnemonic('T');
+        menuItemThese.setText("These");
+        menuAjouter.add(menuItemThese);
+
+        menuItemLivre.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuItemLivre.setMnemonic('L');
+        menuItemLivre.setText("Livre");
+        menuAjouter.add(menuItemLivre);
+
+        menuBar.add(menuAjouter);
 
         menuDocument.setText("Document");
 
@@ -59,7 +91,7 @@ public class HomeAssistantView extends javax.swing.JFrame {
         menuItemUpdateDocs.setText("Mise à Jour Des Documents");
         menuDocument.add(menuItemUpdateDocs);
 
-        jMenuBar1.add(menuDocument);
+        menuBar.add(menuDocument);
 
         menuUsager.setText("Usager");
 
@@ -75,9 +107,9 @@ public class HomeAssistantView extends javax.swing.JFrame {
         menuItemUpdateUsers.setText("Mise à jours des Usages");
         menuUsager.add(menuItemUpdateUsers);
 
-        jMenuBar1.add(menuUsager);
+        menuBar.add(menuUsager);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,8 +151,12 @@ public class HomeAssistantView extends javax.swing.JFrame {
 
     
     
-    public javax.swing.JMenuBar getjMenuBar1() {
-		return jMenuBar1;
+    
+
+
+
+	public javax.swing.JMenu getMenuAjouter() {
+		return menuAjouter;
 	}
 
 	public javax.swing.JMenu getMenuDocument() {
@@ -143,11 +179,13 @@ public class HomeAssistantView extends javax.swing.JFrame {
 		return menuItemConsulterThese;
 	}
 
-	public javax.swing.JMenu getMenuUsager() {
-		return menuUsager;
+	public javax.swing.JMenuItem getMenuItemLivre() {
+		return menuItemLivre;
 	}
 
-
+	public javax.swing.JMenuItem getMenuItemThese() {
+		return menuItemThese;
+	}
 
 	public javax.swing.JMenuItem getMenuItemUpdateDocs() {
 		return menuItemUpdateDocs;
@@ -157,15 +195,21 @@ public class HomeAssistantView extends javax.swing.JFrame {
 		return menuItemUpdateUsers;
 	}
 
+	public javax.swing.JMenu getMenuUsager() {
+		return menuUsager;
+	}
 
 
 	// Variables declaration - do not modify                     
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu menuAjouter;
+    private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuDocument;
     private javax.swing.JMenuItem menuItemConsulterEns;
     private javax.swing.JMenuItem menuItemConsulterEtudiant;
     private javax.swing.JMenuItem menuItemConsulterLivre;
     private javax.swing.JMenuItem menuItemConsulterThese;
+    private javax.swing.JMenuItem menuItemLivre;
+    private javax.swing.JMenuItem menuItemThese;
     private javax.swing.JMenuItem menuItemUpdateDocs;
     private javax.swing.JMenuItem menuItemUpdateUsers;
     private javax.swing.JMenu menuUsager;

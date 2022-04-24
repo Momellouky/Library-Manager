@@ -54,7 +54,7 @@ public class EnregistrerRetourTheseController extends Controller{
 					return; 
 				}
 				
-				String titre = enrTheseView.getTxtTitre().getText(); 
+				String titre = enrTheseView.getTxtTitre().getText().trim(); 
 				
 				if(titre == null || titre.length() == 0 || titre.length() > 500 ) {
 					enrTheseView.triggerErrorMessage("Saisir le titre correctement. ", "Enregistrer Retour - erreur de saisie"); 

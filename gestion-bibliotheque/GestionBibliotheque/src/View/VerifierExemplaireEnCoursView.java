@@ -20,6 +20,9 @@ public class VerifierExemplaireEnCoursView extends javax.swing.JFrame {
     	
     	initView();
         
+        ImageIcon img = new ImageIcon(getClass().getResource("/ressources/icon.png"));
+        setIconImage(img.getImage());
+        
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -47,6 +50,9 @@ public class VerifierExemplaireEnCoursView extends javax.swing.JFrame {
 
           setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
           setTitle("Verifier nombre d'emprunt en cours");
+          
+          ImageIcon img = new ImageIcon("/ressources/icon.png");
+          setIconImage(img.getImage());
 
           lblCin.setText("CIN");
 
@@ -60,7 +66,7 @@ public class VerifierExemplaireEnCoursView extends javax.swing.JFrame {
         	  
           },
           new String [] {
-              "Nom", "Prenom", "Emprunt"
+              "Nom", "Prenom"
           }); 
                   
 //          tblEmprunt.setModel(new javax.swing.table.DefaultTableModel(
@@ -228,5 +234,12 @@ public class VerifierExemplaireEnCoursView extends javax.swing.JFrame {
     private javax.swing.JScrollPane tblScrollPane;
     private javax.swing.JButton btnSearch;
     private javax.swing.JTextField txtCin;
-    // End of variables declaration                   
+    // End of variables declaration  
+    
+    
+	public void triggerErrorMessage(String msj, String title, int errorMessage) {
+		
+		JOptionPane.showMessageDialog(this, msj, title, errorMessage);
+		
+	}
 }

@@ -1,0 +1,49 @@
+drop procedure if exists verifierExemplaire_v2; 
+
+delimiter //
+create procedure verifierExemplaire_v2(isbn varchar(500) ) 
+begin 
+	declare nbrDispo int ; 
+
+	select count(isbn) into nbrDispo
+	from emprunteexemplaire ee, exemplaire e
+	where ee.numinvantaire = e.numinvantaire 
+	and e.isbn = isbn;  
+
+	if nbrDispo = 0 then 
+		select distinct a.nom, a.prenom, l.titre, count(distinct l.isbn) as nbrDispo, e.numinvantaire
+		from exemplaire e, livre l, ecrireLivre el, auteur a
+		where e.isbn = l.isbn 
+		and e.isbn = el.isbnlivre 
+		and el.idAuteur = a.id
+		and l.isbn = isbn; 
+	else 
+
+		select count(isbn) into nbrDispo
+		from emprunteexemplaire ee, exemplaire e
+		where ee.numinvantaire = e.numinvantaire 
+		and dateretour is not null
+		and e.isbn = isbn; 
+
+		if nbrDispo > 0 then 
+			select distinct a.nom, a.prenom, l.titre, count(distinct l.isbn) as nbrDispo, e.numinvantaire
+			from exemplaire e, livre l, ecrireLivre el, auteur a
+			where e.isbn = l.isbn 
+			and e.isbn = el.isbnlivre 
+			and el.idAuteur = a.id
+			and l.isbn = isbn; 
+		else 
+			select a.nom, a.prenom, l.titre, '0' as nbrDispo, e.numinvantaire
+			from exemplaire e, emprunteexemplaire ee, ecrireLivre el, livre l,  auteur a
+			where e.numinvantaire = ee.numinvantaire 
+			and e.isbn = el.isbnLivre 
+			and el.idAuteur = a.id
+			and e.isbn = l.isbn
+			and e.isbn = isbn; 
+        end if; 
+    end if; 
+
+end; 
+
+// 
+delimiter ; 

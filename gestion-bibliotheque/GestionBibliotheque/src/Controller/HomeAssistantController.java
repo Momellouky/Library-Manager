@@ -6,6 +6,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import model.Connexion;
+import model.LivreModel;
+import model.TheseModel;
+import view.AjouterLivreView;
+import view.AjouterTheseView;
 import view.ConsulterEnsView;
 import view.ConsulterEtudiantView;
 import view.ConsulterLivreView;
@@ -80,6 +84,32 @@ public class HomeAssistantController extends Controller {
 			public void actionPerformed(ActionEvent e) {
 				
 				JOptionPane.showMessageDialog(homeAssView, "La base des données des usages est à jours maintenant", "Mise à Jours De La Base De Données.", JOptionPane.INFORMATION_MESSAGE);
+				
+			}
+		});
+		
+		this.homeAssView.getMenuItemThese().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				AjouterTheseView atv = new AjouterTheseView(); 
+				TheseModel atm = new TheseModel(cnxModel); 
+				AjouterTheseController atc = new AjouterTheseController(atv, atm); 
+				atc.initController();
+				
+			}
+		});
+		
+		this.homeAssView.getMenuItemLivre().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				AjouterLivreView alv = new AjouterLivreView();
+				LivreModel lm = new LivreModel(cnxModel); 
+				AjouterLivreController atm = new AjouterLivreController(alv, lm); 
+				atm.initController();
 				
 			}
 		});

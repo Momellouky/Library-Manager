@@ -48,7 +48,7 @@ public class VerifierExemplaireEnCoursController extends Controller{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				String cin = verEx.getTxtCin().getText(); 
+				String cin = verEx.getTxtCin().getText().trim(); 
 				
 				EmpruntModel em = new EmpruntModel(cnxModel); 
 				
@@ -62,14 +62,13 @@ public class VerifierExemplaireEnCoursController extends Controller{
 				
 				if( cin.length() == 0 ) {
 					
-					JOptionPane.showConfirmDialog(verEx, "Saisir le cin" , "Alerte", JOptionPane.WARNING_MESSAGE); 
+					JOptionPane.showMessageDialog(verEx, "Saisir le cin" , "Alerte", JOptionPane.WARNING_MESSAGE); 
 				}else {
-					ResultSet rs = em.getCurrentEmprunt(cin); 
+					 
 					
 					try {
 						
-//						rs.absolute(1); 
-				
+						ResultSet rs = em.getUsager(cin);
 						
 						if(rs.next() == false) {
 							
@@ -80,23 +79,31 @@ public class VerifierExemplaireEnCoursController extends Controller{
 							
 							data[0] = rs.getString(1); 
 							data[1] = rs.getString(2); 
-							data[2] = rs.getString(3); 
+//							data[2] = rs.getString(3); 
 							verEx.getEmpruntDefaultModel().insertRow(0,data); 
 							
 						}
 						
+						int nbrEmprunt = em.getNbrEmprunt(cin); 
+						
 						verEx.getLblNbrEmprunt().setText(
-								verEx.getEmpruntDefaultModel().getRowCount() + ""
+								 nbrEmprunt + ""
 								); 
 						
-						if( verEx.getEmpruntDefaultModel().getRowCount() != 0
-								&&
-								verEx.getEmpruntDefaultModel().getRowCount() < 2) {
+						if( nbrEmprunt < 2) {
 							verEx.getBtnContinuer().setEnabled(true);
 						}
 					
 					}catch(SQLException ex) {
+						
 						ex.printStackTrace(); 
+						verEx.triggerErrorMessage("Une erreur est survenue", "Verifier Emprunt - Erreur", JOptionPane.ERROR_MESSAGE); 
+					
+					}catch( Exception ex){
+						ex.printStackTrace();
+						verEx.triggerErrorMessage("Une erreur est survenue", "Verifier Emprunt - Erreur", JOptionPane.ERROR_MESSAGE); 
+						
+						
 					}
 					
 				}

@@ -11,6 +11,7 @@ import model.EnseignantModel;
 import model.LivreModel;
 import view.ConsulterLivreView;
 import view.HomeAssistantView;
+import view.ModifierLivreView;
 
 public class ConsulterLivreController extends Controller{
 	
@@ -37,7 +38,14 @@ public class ConsulterLivreController extends Controller{
 			public void actionPerformed(ActionEvent e) {
 				
 				int selectedIndex = consulterLivreView.getTblLivre().getSelectedRow(); 
+				
+				if(selectedIndex < 0) {
+					consulterLivreView.triggerErrorMessage("Selectionner un livre à supprimer", "Alerte");
+					return ; 
+				}
+				
 				Object livreIsbn = consulterLivreView.getTblModelLivre().getValueAt(selectedIndex, 0);
+				
 				
 				int rep = consulterLivreView.ConfermToDelete("Vous etes sur de supprimer le livre: " + livreIsbn + " ? " , "Attention! "); 
 				
@@ -71,6 +79,30 @@ public class ConsulterLivreController extends Controller{
 			}
 		}});
 		
+		consulterLivreView.getBtnModifier().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				int row = consulterLivreView.getTblLivre().getSelectedRow(); 
+				
+				if(row < 0 ) {
+					
+					consulterLivreView.triggerErrorMessage("Selectionner une thèse pour procéder", "Modifier These - Erreur"); 
+					
+				}else {
+					
+					
+					ModifierLivreView modifyLivreView = new ModifierLivreView();
+					ModifierLivreController mlc = new ModifierLivreController(modifyLivreView, consulterLivreView, currentCnx);
+					mlc.initController();
+					
+					
+				}
+				
+				
+			}
+		});
 	}
 	
 	public void getLivre() {

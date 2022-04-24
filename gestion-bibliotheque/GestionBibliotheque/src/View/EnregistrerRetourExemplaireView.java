@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class EnregistrerRetourExemplaireView extends javax.swing.JFrame {
@@ -9,6 +10,9 @@ public class EnregistrerRetourExemplaireView extends javax.swing.JFrame {
     	initComponents();
     	
     	initView(); 
+    	
+        ImageIcon img = new ImageIcon(getClass().getResource("/ressources/icon.png"));
+        setIconImage(img.getImage());
     	
         this.setVisible(true);
         this.setLocationRelativeTo(null);
