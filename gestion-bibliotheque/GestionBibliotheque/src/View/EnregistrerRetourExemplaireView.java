@@ -50,9 +50,9 @@ public class EnregistrerRetourExemplaireView extends javax.swing.JFrame {
 
           lblCin.setText("CIN: ");
 
-          lblNumInv.setText("Numero Invantaire: ");
+          lblNumInv.setText("Num d'inventaire: ");
 
-          lblDateEmprunt.setText("Date Emprunt: ");
+          lblDateEmprunt.setText("Date d'emprunt: ");
 
           javax.swing.GroupLayout pnlInfoEmpruntLayout = new javax.swing.GroupLayout(pnlInfoEmprunt);
           pnlInfoEmprunt.setLayout(pnlInfoEmpruntLayout);
@@ -97,7 +97,7 @@ public class EnregistrerRetourExemplaireView extends javax.swing.JFrame {
 
           pnlInfoRetour.setBorder(javax.swing.BorderFactory.createTitledBorder("Information Retour"));
 
-          lblDateRetour.setText("Date Retour: ");
+          lblDateRetour.setText("Date retour: ");
 
           lblEtat.setText("Etat: ");
 

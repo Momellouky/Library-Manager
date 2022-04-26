@@ -42,12 +42,12 @@ public class HomeBibliothecaireView extends JFrame{
          ImageIcon img = new ImageIcon(getClass().getResource("/ressources/bg.jpg"));
          JLabel lblBg = new JLabel(img); 
          this.setContentPane(lblBg); 
-         setTitle("Home - Bibliotheque");
+         setTitle("Home - Bibliothecaire");
 
-         enrEmpruntMenu.setText("Enregistrer Emprunte");
+         enrEmpruntMenu.setText("Enregistrer Emprunt");
 
          newMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-         newMenuItem.setText("Nouveau Emprunt");
+         newMenuItem.setText("Nouvel Emprunt");
          enrEmpruntMenu.add(newMenuItem);
 
          jMenuBar1.add(enrEmpruntMenu);

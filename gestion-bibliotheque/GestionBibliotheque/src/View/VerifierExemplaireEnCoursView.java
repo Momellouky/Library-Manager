@@ -60,6 +60,7 @@ public class VerifierExemplaireEnCoursView extends javax.swing.JFrame {
           txtCin.setMinimumSize(new java.awt.Dimension(88, 22));
 
           btnSearch.setText("Rechercher");
+          btnSearch.setMnemonic('R'); 
           
           empruntDefaultModel = new DefaultTableModel(
         new Object [][] {

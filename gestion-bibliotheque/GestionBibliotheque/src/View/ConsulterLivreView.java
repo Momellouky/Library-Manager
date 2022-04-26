@@ -47,7 +47,7 @@ public class ConsulterLivreView extends javax.swing.JFrame {
               	  
                 },
                 new String [] {
-                    "ISBN", "Titre", "Date Edition"
+                    "ISBN", "Titre", "Date d'dition"
                 }
         		); 
         tblLivre.setModel(tblModelLivre);
@@ -71,7 +71,7 @@ public class ConsulterLivreView extends javax.swing.JFrame {
         btnModifier.setText("Modifier");
 
         btnSuprimer.setMnemonic('S');
-        btnSuprimer.setText("Suprimer");
+        btnSuprimer.setText("Supprimer");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

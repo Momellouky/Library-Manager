@@ -32,47 +32,49 @@ public class ConsulterEnsController extends Controller{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				int selectedIndex = consEnsView.getTblEns().getSelectedRow(); 
+//				int selectedIndex = consEnsView.getTblEns().getSelectedRow(); 
+//				
+//				if(selectedIndex < 0 ) {
+//					
+//					consEnsView.triggerErrorMessage("Selectionner un etudiant à supprimer", "Alerte"); 
+//					return ; 
+//					
+//				}
+//				Object ensCin = consEnsView.getTblModel().getValueAt(selectedIndex, 0);
+//				
+//				int rep = consEnsView.ConfermToDelete("Vous etes sur de supprimer l'enseignant : " + ensCin + " ? " , "Attention! "); 
+//				
+//				if(rep == JOptionPane.YES_OPTION) {
+//					
+//					try {
+//						
+//						EnseignantModel tm = new EnseignantModel(ensCin.toString(), currentCnx); 
+//						
+//						try {
+//							
+//							tm.deleteEns(ensCin.toString());
+//							
+//							consEnsView.showMessage("Enseignant suprimmée. ", "Supression Enseignant "); 
+//							
+//							getEns(); 
+//							
+//						}catch(Exception ex) {
+//							ex.printStackTrace(); 
+//							
+//							consEnsView.triggerErrorMessage("Une erreur est survenue lors de la execution de votre demande. ", "Supression Enseignant - Erreur ");
+//						}
+//						
+//					}catch(Exception ex) { 
+//						
+//						ex.printStackTrace();
+//						
+//					}
 				
-				if(selectedIndex < 0 ) {
-					
-					consEnsView.triggerErrorMessage("Selectionner un etudiant à supprimer", "Alerte"); 
-					return ; 
-					
-				}
-				Object ensCin = consEnsView.getTblModel().getValueAt(selectedIndex, 0);
-				
-				int rep = consEnsView.ConfermToDelete("Vous etes sur de supprimer l'enseignant : " + ensCin + " ? " , "Attention! "); 
-				
-				if(rep == JOptionPane.YES_OPTION) {
-					
-					try {
-						
-						EnseignantModel tm = new EnseignantModel(ensCin.toString(), currentCnx); 
-						
-						try {
-							
-							tm.deleteEns(ensCin.toString());
-							
-							consEnsView.showMessage("Enseignant suprimmée. ", "Supression Enseignant "); 
-							
-							getEns(); 
-							
-						}catch(Exception ex) {
-							ex.printStackTrace(); 
-							
-							consEnsView.triggerErrorMessage("Une erreur est survenue lors de la execution de votre demande. ", "Supression Enseignant - Erreur ");
-						}
-						
-					}catch(Exception ex) { 
-						
-						ex.printStackTrace();
-						
-					}
+				consEnsView.dispose(); 
 					
 					
 			}
-		}});
+		});
 		
 		consEnsView.getBtnModifier().addActionListener(new ActionListener() {
 			

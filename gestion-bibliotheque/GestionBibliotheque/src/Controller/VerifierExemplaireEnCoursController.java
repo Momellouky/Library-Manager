@@ -82,17 +82,18 @@ public class VerifierExemplaireEnCoursController extends Controller{
 //							data[2] = rs.getString(3); 
 							verEx.getEmpruntDefaultModel().insertRow(0,data); 
 							
+							int nbrEmprunt = em.getNbrEmprunt(cin); 
+							
+							verEx.getLblNbrEmprunt().setText(
+									nbrEmprunt + ""
+									); 
+							
+							if( nbrEmprunt < 2) {
+								verEx.getBtnContinuer().setEnabled(true);
+							}
+							
 						}
 						
-						int nbrEmprunt = em.getNbrEmprunt(cin); 
-						
-						verEx.getLblNbrEmprunt().setText(
-								 nbrEmprunt + ""
-								); 
-						
-						if( nbrEmprunt < 2) {
-							verEx.getBtnContinuer().setEnabled(true);
-						}
 					
 					}catch(SQLException ex) {
 						

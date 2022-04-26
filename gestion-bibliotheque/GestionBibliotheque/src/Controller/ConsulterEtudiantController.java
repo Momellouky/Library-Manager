@@ -33,47 +33,47 @@ public class ConsulterEtudiantController extends Controller{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				int selectedIndex = consEtudiantView.getTblEtudiant().getSelectedRow(); 
-				
-				if(selectedIndex < 0 ) {
-					
-					consEtudiantView.triggerErrorMessage("Selectionner un etudiant à supprimer", "Alerte"); 
-					return ; 
-					
-				}
-				Object cinEtud = consEtudiantView.getTblModel().getValueAt(selectedIndex, 0);
-				
-				int rep = consEtudiantView.ConfermToDelete("Vous etes sur de supprimer l'etudiant: " + cinEtud + " ? " , "Attention! "); 
-				
-				if(rep == JOptionPane.YES_OPTION) {
-					
-					try {
-						
-						EtudiantModel tm = new EtudiantModel(cinEtud.toString(), currentCnx); 
-						
-						try {
-							
-							tm.deleteEtudiant(cinEtud.toString());
-							
-							consEtudiantView.showMessage("Etudiant Suprimmé. ", "Supression Etudiant "); 
-							
-							getEtudiant(); 
-							
-						}catch(Exception ex) {
-							ex.printStackTrace(); 
-							
-							consEtudiantView.triggerErrorMessage("Une erreur est survenue lors de la execution de votre demande. ", "Supression Etudiant - Erreur ");
-						}
-						
-					}catch(Exception ex) { 
-						consEtudiantView.triggerErrorMessage("Une erreur est survenue lors de la execution de votre demande. ", "Supression Etudiant - Erreur ");
-						ex.printStackTrace();
-						
-					}
-					
-					
+//				int selectedIndex = consEtudiantView.getTblEtudiant().getSelectedRow(); 
+//				
+//				if(selectedIndex < 0 ) {
+//					
+//					consEtudiantView.triggerErrorMessage("Selectionner un etudiant à supprimer", "Alerte"); 
+//					return ; 
+//					
+//				}
+//				Object cinEtud = consEtudiantView.getTblModel().getValueAt(selectedIndex, 0);
+//				
+//				int rep = consEtudiantView.ConfermToDelete("Vous etes sur de supprimer l'etudiant: " + cinEtud + " ? " , "Attention! "); 
+//				
+//				if(rep == JOptionPane.YES_OPTION) {
+//					
+//					try {
+//						
+//						EtudiantModel tm = new EtudiantModel(cinEtud.toString(), currentCnx); 
+//						
+//						try {
+//							
+//							tm.deleteEtudiant(cinEtud.toString());
+//							
+//							consEtudiantView.showMessage("Etudiant Suprimmé. ", "Supression Etudiant "); 
+//							
+//							getEtudiant(); 
+//							
+//						}catch(Exception ex) {
+//							ex.printStackTrace(); 
+//							
+//							consEtudiantView.triggerErrorMessage("Une erreur est survenue lors de la execution de votre demande. ", "Supression Etudiant - Erreur ");
+//						}
+//						
+//					}catch(Exception ex) { 
+//						consEtudiantView.triggerErrorMessage("Une erreur est survenue lors de la execution de votre demande. ", "Supression Etudiant - Erreur ");
+//						ex.printStackTrace();
+//						
+//					}
+//					
+					consEtudiantView.dispose();
 			}
-		}});
+		});
 		
 		consEtudiantView.getBtnModifier().addActionListener(new ActionListener() {
 			

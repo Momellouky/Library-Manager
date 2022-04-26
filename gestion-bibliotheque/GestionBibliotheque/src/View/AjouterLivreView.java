@@ -65,6 +65,7 @@ public class AjouterLivreView extends javax.swing.JFrame {
         this.setTitle("Ajouter Livre");
 
         btnSave.setText("Enregistrer");
+        btnSave.setMnemonic('E');
 
         btnCancel.setText("Annuler");
 
@@ -76,7 +77,7 @@ public class AjouterLivreView extends javax.swing.JFrame {
 
         lblDateEd.setText("Date d'edition :");
 
-        lblMotCl.setText("Mots cl�s :");
+        lblMotCl.setText("Mots clés :");
 
         btnAdd.setText("+");
 

@@ -45,6 +45,7 @@ public class AjouterTheseView extends javax.swing.JFrame {
         lblNom.setText("Nom auteur :");
 
         btnAjouter.setText("Ajouter");
+        btnAjouter.setMnemonic('A');
 
         btnAnnuler.setText("Annuler");
 

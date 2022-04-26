@@ -72,7 +72,7 @@ public class AjouterTheseController extends Controller{
 					ajouterThese.getTxtTitre().setText(null); 
 					ajouterThese.getTxtNom().setText(null); 
 					ajouterThese.getTxtPrenom().setText(null); 
-					ajouterThese.getTxtDateS().setDate(new Date()); 
+					ajouterThese.getTxtDateS().setDate(null); 
 					
 				}catch(Exception ex) {
 					
@@ -84,6 +84,10 @@ public class AjouterTheseController extends Controller{
 				
 			}
 		});
-	}}
+	}
+	
+
+
+}
 
 

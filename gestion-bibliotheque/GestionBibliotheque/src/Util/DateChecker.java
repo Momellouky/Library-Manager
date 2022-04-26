@@ -9,9 +9,7 @@ public class DateChecker {
 
 	public static long differenceInDays(Date d1, Date d2) throws Exception{
 		
-		SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
-//		String inputString1 = "23 01 1997";
-//		String inputString2 = "27 04 1997";
+		SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");	
 
 		try {
 		    Date date1 = d1;

@@ -22,6 +22,8 @@ public class ConsulterEnsView extends javax.swing.JFrame {
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
+        
+        btnModifier.setVisible(false); 
     }
 
     /**
@@ -65,11 +67,11 @@ public class ConsulterEnsView extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        btnModifier.setMnemonic('M');
-        btnModifier.setText("Modifier");
+//        btnModifier.setMnemonic('M');
+//        btnModifier.setText("Modifier");
 
-        btnSuprimer.setMnemonic('S');
-        btnSuprimer.setText("Suprimer");
+        btnSuprimer.setMnemonic('R');
+        btnSuprimer.setText("Retour");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -52,7 +52,7 @@ public class VerifierDispoExemplaireView extends javax.swing.JFrame {
         lblThirdText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Verifier nombre exemplaires disponible");
+        setTitle("Verifier nombre exemplaires disponibles");
 
         pnlTypeDeRecherche.setBorder(javax.swing.BorderFactory.createTitledBorder("Type de recherche"));
 
@@ -100,6 +100,7 @@ public class VerifierDispoExemplaireView extends javax.swing.JFrame {
         txtTitre.setMinimumSize(new java.awt.Dimension(88, 22));
 
         btnSearch.setText("Rechercher");
+        btnSearch.setMnemonic('R');
 
         lblSecond.setText("Titre : ");
 

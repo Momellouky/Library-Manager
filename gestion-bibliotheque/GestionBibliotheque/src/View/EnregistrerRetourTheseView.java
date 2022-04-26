@@ -60,7 +60,7 @@ public class EnregistrerRetourTheseView extends javax.swing.JFrame {
 
          lblTitre.setText("Titre: ");
 
-         lblDateEmprunt.setText("Date Emprunt: ");
+         lblDateEmprunt.setText("Date d'emprunt: ");
 
          javax.swing.GroupLayout pnlInfoEmpruntLayout = new javax.swing.GroupLayout(pnlInfoEmprunt);
          pnlInfoEmprunt.setLayout(pnlInfoEmpruntLayout);
@@ -105,7 +105,7 @@ public class EnregistrerRetourTheseView extends javax.swing.JFrame {
 
          pnlInfoRetour.setBorder(javax.swing.BorderFactory.createTitledBorder("Information Retour"));
 
-         lblDateRetour.setText("Date Retour: ");
+         lblDateRetour.setText("Date retour: ");
 
          javax.swing.GroupLayout pnlInfoRetourLayout = new javax.swing.GroupLayout(pnlInfoRetour);
          pnlInfoRetour.setLayout(pnlInfoRetourLayout);

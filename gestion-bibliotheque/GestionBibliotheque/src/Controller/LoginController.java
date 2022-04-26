@@ -23,11 +23,11 @@ public class LoginController extends Controller{
 		this.lv = lv; 
 		
 //		assMail = new String("assistant.fatma.hachimi@usmba.ac.ma"); 
-//		assMail = new String("mail"); 
-		bibMail = new String("mail"); 
+		assMail = new String("assistant.mellouky@gmail.com"); 
+		bibMail = new String("bibliothecaire.loulidi@gmail.com"); 
 //		assMdp = new String("1234abcd"); 
-//		assMdp = new String("mail"); 
-		bibMdp = new String("mail"); 
+		assMdp = new String("password"); 
+		bibMdp = new String("password"); 
 		
 		cnxModel = new Connexion(); 
 		
@@ -119,11 +119,11 @@ public class LoginController extends Controller{
 		try {
 			
 			cnxModel.connect(); 
-			JOptionPane.showMessageDialog(lv, "Vous êtes connecté", "Connexion", JOptionPane.INFORMATION_MESSAGE); 
+			JOptionPane.showMessageDialog(lv, "Vous êtes connectés", "Connexion", JOptionPane.INFORMATION_MESSAGE); 
 			
 		}catch(ClassNotFoundException exc) { 
 			
-			JOptionPane.showMessageDialog(lv, "Un erreur de connexion est surevenu. ", "Connexion", JOptionPane.ERROR_MESSAGE); 
+			JOptionPane.showMessageDialog(lv, "Une erreur de connexion est surevenue. ", "Connexion", JOptionPane.ERROR_MESSAGE); 
 			
 			
 		}catch(Exception exc) {

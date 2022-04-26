@@ -15,6 +15,9 @@ public class AfficherRetardMoisView extends javax.swing.JFrame {
         
         initView(); 
         
+        ImageIcon img = new ImageIcon(getClass().getResource("/ressources/icon.png"));
+        setIconImage(img.getImage());
+        
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -40,7 +43,7 @@ public class AfficherRetardMoisView extends javax.swing.JFrame {
                 new Object [][] {
                 },
                 new String [] {
-                    "CIN", "identifiant Emprunt", "Date emprunt"
+                    "CIN", "Identifiant d'emprunt", "Date d'emprunt"
                 }
         		); 
         
@@ -48,7 +51,8 @@ public class AfficherRetardMoisView extends javax.swing.JFrame {
         
         scrollPane.setViewportView(tblRetard);
 
-        btnEnvRelance.setText("Envoyer Relance");
+        btnEnvRelance.setText("Declarer perdu");
+        btnEnvRelance.setMnemonic('D');
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

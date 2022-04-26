@@ -7,6 +7,7 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+import Util.LivreException;
 import model.LivreModel;
 import view.AjouterLivreView;
 
@@ -73,30 +74,33 @@ public class AjouterLivreController extends Controller{
 						return; 
 					}
 				
-				if(titre.length() == 0) {
-					
-					JOptionPane.showMessageDialog(null , "Champ Titre incorrecte !", "Connexion", JOptionPane.ERROR_MESSAGE);
-					return ; 
-				}
-					
-				if(date == null) {
-					
-					JOptionPane.showMessageDialog(null , "Champ Date d'edition incorrecte !", "Connexion", JOptionPane.ERROR_MESSAGE);
-					return ; 
-				}
-				
-				if(resume.length() == 0) {
-					
-					JOptionPane.showMessageDialog(null , "Champ resume incorrecte !", "Connexion", JOptionPane.ERROR_MESSAGE);
-					return ; 
-				}
-				
 				if(view.getCheckboxExpl().isSelected()) {
 					
 					if(numInv.length()==0) {
 						JOptionPane.showMessageDialog(null , "Champ numero d'inventaire incorrecte !", "Connexion", JOptionPane.ERROR_MESSAGE);
 						return ; 
 					}
+					
+				}else {
+					
+					if(titre.length() == 0) {
+						
+						JOptionPane.showMessageDialog(null , "Champ Titre incorrecte !", "Connexion", JOptionPane.ERROR_MESSAGE);
+						return ; 
+					}
+						
+					if(date == null) {
+						
+						JOptionPane.showMessageDialog(null , "Champ Date d'edition incorrecte !", "Connexion", JOptionPane.ERROR_MESSAGE);
+						return ; 
+					}
+					
+					if(resume.length() == 0) {
+						
+						JOptionPane.showMessageDialog(null , "Champ resume incorrecte !", "Connexion", JOptionPane.ERROR_MESSAGE);
+						return ; 
+					}
+					
 					
 				}
 				
@@ -112,6 +116,12 @@ public class AjouterLivreController extends Controller{
 					}
 					
 					view.showMessage("Document ajouté", "Message", JOptionPane.INFORMATION_MESSAGE); 
+					
+					viderChamps(); 
+				
+				}catch(LivreException ex) {
+					
+					view.triggerErrorMessage(ex.getMessage(), "Alerte",JOptionPane.WARNING_MESSAGE); 
 					
 				}catch(Exception ex) {
 					
@@ -131,6 +141,16 @@ public class AjouterLivreController extends Controller{
 			}
 		});
 		
+	}
+	
+	public void viderChamps() {
+		view.getTxtTitre().setText("");
+		view.getTxtISBN().setText("");
+		view.getTxtRes().setText("");
+		view.getTxtMotCl().setText("");
+		view.getTxtNumInv().setText("");
+		view.getTxtDateEd().setCalendar(null);
+		view.getMotCl().clear();
 	}
 
 }

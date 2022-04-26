@@ -1,0 +1,21 @@
+drop procedure if exists ajouterexemplaire; 
+
+delimiter //
+create procedure ajouterexemplaire(numinvantaire varchar(13), isbn varchar(13) )
+begin 
+
+    declare livreExist int default 0; 
+
+    select count(l.isbn) into livreExist
+    from livre  l  
+    where l.isbn = isbn; 
+
+    if livreExist = 0 then 
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Livre n'existe pas';
+    else 
+        insert into exemplaire values(numinvantaire, isbn, 'Neuf'); 
+    end if; 
+end ; 
+//
+delimiter ; 

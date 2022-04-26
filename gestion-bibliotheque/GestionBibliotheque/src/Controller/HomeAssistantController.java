@@ -83,7 +83,7 @@ public class HomeAssistantController extends Controller {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				JOptionPane.showMessageDialog(homeAssView, "La base des données des usages est à jours maintenant", "Mise à Jours De La Base De Données.", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(homeAssView, "La base de données des usagers est à jour", "Mise à Jours De La Base De Données.", JOptionPane.INFORMATION_MESSAGE);
 				
 			}
 		});
@@ -110,6 +110,16 @@ public class HomeAssistantController extends Controller {
 				LivreModel lm = new LivreModel(cnxModel); 
 				AjouterLivreController atm = new AjouterLivreController(alv, lm); 
 				atm.initController();
+				
+			}
+		});
+		
+		this.homeAssView.getMenuItemUpdateUsers().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(homeAssView, "La base de données des usagers est à jour", "Mise à Jours De La Base De Données.", JOptionPane.INFORMATION_MESSAGE);
 				
 			}
 		});

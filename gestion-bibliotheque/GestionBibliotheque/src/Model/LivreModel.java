@@ -6,6 +6,8 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import Util.LivreException;
+
 public class LivreModel {
 	
 	private String isbn; 
@@ -147,10 +149,11 @@ public class LivreModel {
 
 
 	public void insertExemplaire(String numInv, String isbn, String titre, Date date, String resume,
-			Object[] motsCles) throws Exception{
+			Object[] motsCles) throws LivreException{
 		
 		String foreignKey = "set foreign_key_checks = 0"; 
-		String query = "insert into exemplaire values ('" + numInv + "' , '" + isbn + "' , 'neuf' ) "; 
+//		String query = "insert into exemplaire values ('" + numInv + "' , '" + isbn + "' , 'neuf' ) "; 
+		String query = "call ajouterexemplaire('" + numInv + "' , '" + isbn + "' )"; 
 		try { 
 			
 //			insertLivre(isbn, titre, date, resume, motsCles);
@@ -164,7 +167,7 @@ public class LivreModel {
 		}catch(Exception ex) {
 			
 			ex.printStackTrace();
-			throw new Exception(); 
+			throw new LivreException("Le Livre n'existe pas"); 
 			
 		}
 		
