@@ -8,7 +8,7 @@
     <li>Assistant</li>
 </ul>
 
-<p> Le projet ci dessus repond au exigence fonctionnelle suivantes: </p>
+<p> Le projet ci dessus repond au exigences fonctionnelles suivantes: </p>
 <ul>
     <li>Enregistrer un emprunt</li>
     <li>Gestion des emprunts en retard</li>
